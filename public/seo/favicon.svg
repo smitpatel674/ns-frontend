@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DVLOP Technologies | Software Development & AI Company</title>
+  <meta name="description"
+    content="DVLOP Technologies is a leading Software Development & AI Company in India. We build scalable web applications, enterprise software, and AI solutions." />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.dvlop.in" />
+
+  <!-- Favicon & Manifest -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="p:domain_verify" content="4fa890c0747d1140a81987359b975df1" />
+  <!-- Google Tag Manager / GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GZKTFS9K1J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-GZKTFS9K1J');
+  </script>
+
+  <!-- Fonts Preload -->
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=author@200,300,400,500&display=swap" rel="stylesheet">
+
+  <!-- Static Structured Data for Site Name -->
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "DVLOP Technologies",
+        "url": "https://www.dvlop.in",
+        "alternateName": ["DVLOP", "DVLOP India"],
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.dvlop.in/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DVLOP Technologies",
+        "url": "https://www.dvlop.in",
+        "logo": "https://www.dvlop.in/android-chrome-512x512.png",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+91-83207-23850",
+          "contactType": "customer service"
+        }
+      }
+    </script>
+  <script type="module" crossorigin src="/assets/index-BZ43BT6I.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DqPAaKG5.css">
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>

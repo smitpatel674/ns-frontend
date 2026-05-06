@@ -1,0 +1,100 @@
+"use client";
+
+import { useEffect } from "react";
+import Lenis from "@studio-freight/lenis";
+import Link from "next/link";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { ScrollToTop } from "@/components/ScrollToTop";
+
+export default function CareersPage() {
+  useEffect(() => {
+    const lenis = new Lenis({ duration: 1.2, easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
+    function raf(time: number) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    return () => lenis.destroy();
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => { entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("is-visible"); }); }, { threshold: 0.1 });
+    document.querySelectorAll(".gsap-fade-up, .gsap-reveal").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <>
+      <Header />
+      <main className="min-h-screen pt-32 pb-20 overflow-x-hidden transition-all duration-500">
+        <h1 className="sr-only">Careers at DVLOP - Join Our Team | Jobs in Gujarat</h1>
+
+        {/* Hero */}
+        <section className="container-wide pt-20 mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+          <div className="max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.2em] opacity-40 mb-4">Careers</p>
+            <h2 className="text-5xl md:text-7xl font-medium tracking-tighter leading-[0.9] mb-8" style={{ fontFamily: "Author, sans-serif" }}>
+              Careers
+            </h2>
+            <div className="w-16 h-[2px] bg-current opacity-20 mb-8" />
+            <p className="text-lg md:text-xl leading-relaxed opacity-70">
+              We Are Building The Future Of Digital Infrastructure. Join Us In Our Mission To Create Exceptional Technology.
+            </p>
+          </div>
+          <div className="opacity-30">
+            <p className="text-xs font-mono">[DVLOP Technologies]</p>
+          </div>
+        </section>
+
+        {/* E.X.I Values */}
+        <section className="container-wide mb-40">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {[
+              { letter: "E", title: "Excellence", desc: "We Maintain The Highest Standards Of Engineering And Design In Every Project We Undertake." },
+              { letter: "X", title: "Innovation", desc: "Our Team Constantly Explores New Technologies To Provide Cutting-Edge Solutions For Our Clients." },
+              { letter: "I", title: "Integrity", desc: "We Believe In Transparent Communication And Honest Partnerships To Drive Successful Outcomes." },
+            ].map((v) => (
+              <div key={v.letter} className="border-t border-current/10 pt-8 gsap-reveal">
+                <div className="text-4xl font-light opacity-20 mb-4" style={{ fontFamily: "Author, sans-serif" }}>{v.letter}</div>
+                <h3 className="text-xl font-medium mb-3">{v.title}</h3>
+                <p className="text-sm opacity-60 leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Open Positions */}
+        <section className="container-wide mb-40 pt-20 border-t border-current/10 gsap-reveal">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 mb-16">
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] opacity-40 mb-4">Open Positions</p>
+              <h2 className="text-5xl md:text-7xl font-medium tracking-tighter leading-[0.9]" style={{ fontFamily: "Author, sans-serif" }}>
+                0<span className="block">Roles Available</span>
+              </h2>
+            </div>
+            <div className="max-w-md">
+              <p className="text-lg opacity-70 leading-relaxed">
+                No Positions Currently Available.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="container-wide mb-40 gsap-reveal">
+          <div className="max-w-4xl">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-medium leading-[0.85] tracking-tighter mb-8" style={{ fontFamily: "Author, sans-serif" }}>
+              Become Part Of<span className="block">The Team.</span>
+            </h2>
+            <p className="text-lg opacity-70 mb-8 max-w-xl leading-relaxed">
+              We Are Always Looking For Talented Professionals To Join Our Collective. If You Are Ready For A New Challenge, We Want To Hear From You.
+            </p>
+            <Link href="/contact" className="btn-pro px-8 py-4 text-[10px]">
+              Apply Now
+            </Link>
+          </div>
+        </section>
+      </main>
+      <Footer />
+      <ScrollToTop />
+    </>
+  );
+}
