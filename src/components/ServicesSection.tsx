@@ -8,6 +8,8 @@ const services = [
   { number: "05", title: "UI/UX Design", desc: "Beautiful, intuitive interface designs that capture your brand identity and convert users effectively." },
   { number: "06", title: "Analytics & Insights", desc: "Comprehensive analytics and data-driven insights to measure performance and optimize business outcomes." },
   { number: "07", title: "AI/ML Development", desc: "Intelligent AI and machine learning solutions that automate processes and drive smarter business decisions." },
+  { number: "08", title: "E-Commerce", desc: "Scalable online stores with secure payment gateways and comprehensive product management systems." },
+  { number: "09", title: "WordPress", desc: "Custom WordPress themes, plugins, and highly manageable content systems tailored to your business needs." },
 ];
 
 export function ServicesSection() {

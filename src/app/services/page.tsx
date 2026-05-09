@@ -106,6 +106,34 @@ const serviceData = [
       "Custom ML model training & optimization",
     ],
   },
+  {
+    id: "ecommerce",
+    number: "08",
+    title: "E-Commerce",
+    desc: "Scalable online stores with secure payment gateways and comprehensive product management systems.",
+    deliverables: [
+      "Custom Shopify & WooCommerce setups",
+      "Secure payment gateway integration",
+      "Inventory & order management systems",
+      "Conversion rate optimization (CRO)",
+      "B2B and B2C marketplace development",
+      "Mobile commerce & shopping apps",
+    ],
+  },
+  {
+    id: "wordpress",
+    number: "09",
+    title: "WordPress",
+    desc: "Custom WordPress themes, plugins, and highly manageable content systems tailored to your business needs.",
+    deliverables: [
+      "Custom theme design & development",
+      "Plugin development & integration",
+      "Website speed & performance optimization",
+      "WordPress security & maintenance",
+      "Seamless CMS migration to WordPress",
+      "SEO-friendly site architecture",
+    ],
+  },
 ];
 
 const methodologySteps = [

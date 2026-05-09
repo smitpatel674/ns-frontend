@@ -4,13 +4,6 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Nextron Solution — Web Development & Digital Marketing",
   description: "Nextron Solution offers expert web development, digital marketing, SEO, UI/UX design, and AI/ML development services in Gujarat, India. Next Digital Success.",
-  icons: {
-    icon: [
-      { url: "/seo/favicon.ico", type: "image/x-icon" },
-      { url: "/seo/favicon.svg", type: "image/svg+xml" },
-    ],
-    apple: "/seo/apple-touch-icon.png",
-  },
 };
 
 export default function RootLayout({
