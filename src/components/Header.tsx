@@ -43,7 +43,7 @@ export function Header() {
     >
       <div className="container-wide h-full flex items-center justify-between">
         <Link href="/" onClick={(e) => handleLinkClick(e, "/")} className="block">
-          <img src="/images/logo.png" alt="Nextron Solution" className="h-[36px] w-auto hover:opacity-80 transition-opacity" />
+          <img src="/images/logo.png" alt="Nextron Solution" className="h-[80px] md:h-[100px] w-auto hover:opacity-80 transition-opacity" />
         </Link>
 
         <div className="flex items-center gap-10">

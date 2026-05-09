@@ -7,7 +7,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-16">
           <div className="lg:col-span-2">
             <Link href="/" className="block mb-8">
-              <img src="/images/logo.png" alt="Nextron Solution" className="h-[36px] w-auto" />
+              <img src="/images/logo.png" alt="Nextron Solution" className="h-[60px] md:h-[80px] w-auto" />
             </Link>
             <h3 className="text-3xl md:text-4xl font-medium tracking-tighter leading-tight mb-8 max-w-md uppercase" style={{ fontFamily: "Author, sans-serif" }}>
               Next Digital Success —<br />Building The Future Together.

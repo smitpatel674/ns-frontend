@@ -112,19 +112,22 @@ export default function ProjectsPage() {
         </section>
 
         {/* CTA */}
-        <section className="container-wide mb-40 pt-20 border-t border-current/10 gsap-reveal">
-          <div className="flex flex-col gap-10 max-w-4xl">
-            <p className="text-xs uppercase tracking-[0.2em] opacity-40">Get In Touch</p>
-            <h2 className="text-4xl sm:text-5xl md:text-7xl font-medium leading-[0.85] tracking-tighter" style={{ fontFamily: "Author, sans-serif" }}>
-              Want A New Website/<span className="block">Grow Your Business?</span>
-            </h2>
-            <p className="text-sm uppercase tracking-widest opacity-40">Contact Us</p>
-            <p className="text-lg opacity-70 max-w-xl leading-relaxed">
-              Reach out to us to see how we can help. Let&apos;s join hands for your next digital success.
-            </p>
-            <Link href="/contact" className="btn-pro self-start px-8 py-4 text-[10px]">
-              Start Project ↗
-            </Link>
+        <section className="container-wide mb-40 pt-20 border-t border-current/10">
+          <div className="flex flex-col gap-0">
+            <p className="text-[10px] uppercase tracking-[0.3em] opacity-40 mb-8 font-mono">Get In Touch</p>
+
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
+              <h2 className="text-5xl md:text-7xl lg:text-8xl font-medium leading-[0.9] tracking-tighter max-w-4xl" style={{ fontFamily: "Author, sans-serif" }}>
+                Want A New Website/<span className="block">Renovate Your Old</span><span className="block">One?</span>
+              </h2>
+              <Link
+                href="/contact"
+                className="shrink-0 inline-flex items-center gap-4 bg-black text-white px-8 py-4 text-[10px] font-medium uppercase tracking-[0.2em] hover:opacity-80 transition-opacity mb-2"
+              >
+                Contact Us
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg>
+              </Link>
+            </div>
           </div>
         </section>
       </main>

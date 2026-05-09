@@ -4,6 +4,14 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Nextron Solution — Web Development & Digital Marketing",
   description: "Nextron Solution offers expert web development, digital marketing, SEO, UI/UX design, and AI/ML development services in Gujarat, India. Next Digital Success.",
+  icons: {
+    icon: [
+      { url: "/icon.png", sizes: "32x32" },
+      { url: "/icon.png", sizes: "192x192" },
+      { url: "/icon.png", sizes: "512x512" },
+    ],
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({
