@@ -54,19 +54,18 @@ export default function ClientPage() {
         <h1 className="sr-only">NEXTRON SOLUTION CLIENT FEEDBACK – VERIFIED REVIEWS</h1>
 
         {/* Hero */}
-        <section className="container-wide pt-20 mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
-          <div className="max-w-2xl">
-            <p className="text-xs font-mono opacity-40 mb-4 tracking-wider">NEXTRON SOLUTION CLIENT FEEDBACK – VERIFIED REVIEWS</p>
-            <h2 className="text-5xl md:text-7xl font-medium tracking-tighter leading-[0.9] mb-8" style={{ fontFamily: "Author, sans-serif" }}>
+        <section className="container-wide pt-[15vh] mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-16 border-b border-current/10 pb-20">
+          <div className="w-full md:w-1/2 flex flex-col">
+            <h2 className="text-[120px] lg:text-[160px] xl:text-[180px] font-medium tracking-tighter leading-[0.8] mb-8" style={{ fontFamily: "Author, sans-serif" }}>
               Trust
             </h2>
-            <div className="w-16 h-[2px] bg-current opacity-20 mb-8" />
-            <p className="text-lg md:text-xl leading-relaxed opacity-70">
-              A Growing Network Of Partners, Unified By Exceptional Results And Digital Excellence.
-            </p>
+            <div className="w-32 h-[1px] bg-current opacity-40" />
           </div>
-          <div className="opacity-30">
-            <p className="text-xs font-mono">[Nextron Solution]</p>
+          <div className="w-full md:w-1/2 flex flex-col items-start md:items-end text-left md:text-right pb-4">
+            <p className="text-[10px] font-mono opacity-40 tracking-widest uppercase mb-4">[Nextron Solution]</p>
+            <p className="text-xl md:text-2xl lg:text-3xl font-medium leading-[1.4] opacity-50 max-w-2xl text-balance">
+              A Global Network Of Partners, Unified By Exceptional Results And Technical Integrity.
+            </p>
           </div>
         </section>
 

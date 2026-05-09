@@ -28,19 +28,18 @@ export default function AboutPage() {
         <h1 className="sr-only">About Us - Nextron Solution | Web Development & Digital Marketing</h1>
 
         {/* Hero Header */}
-        <section className="container-wide pt-20 mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
-          <div className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.2em] opacity-40 mb-4">About Us</p>
-            <h2 className="text-5xl md:text-7xl font-medium tracking-tighter leading-[0.9] mb-8" style={{ fontFamily: "Author, sans-serif" }}>
+        <section className="container-wide pt-[15vh] mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-16">
+          <div className="w-full md:w-1/2 flex flex-col">
+            <h2 className="text-[120px] lg:text-[180px] font-medium tracking-tighter leading-[0.8] mb-8" style={{ fontFamily: "Author, sans-serif" }}>
               About Us
             </h2>
-            <div className="w-16 h-[2px] bg-current opacity-20 mb-8" />
-            <p className="text-lg md:text-xl leading-relaxed opacity-70">
-              As A Leading Web Development & Digital Marketing Company In Gujarat, We Don&apos;t Just Build Websites. We Craft Digital Success Stories Through Innovation And Strategic Design.
-            </p>
+            <div className="w-32 h-[1px] bg-current opacity-40" />
           </div>
-          <div className="opacity-30">
-            <p className="text-xs font-mono">[Nextron Solution]</p>
+          <div className="w-full md:w-1/2 flex flex-col items-start md:items-end text-left md:text-right pb-4">
+            <p className="text-[10px] font-mono opacity-40 tracking-widest uppercase mb-4">[Nextron Solution]</p>
+            <p className="text-xl md:text-2xl lg:text-3xl font-medium leading-[1.4] opacity-50 max-w-2xl text-balance">
+              As A Leading Web Development Company In Gujarat, We Don&apos;t Just Build Software. We Craft Digital Legacies Through Precision Engineering And Strategic Design.
+            </p>
           </div>
         </section>
 
@@ -49,8 +48,8 @@ export default function AboutPage() {
           <img src="/images/about-hero.jpg" alt="Nextron Solution Studio" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
         </div>
 
-        {/* Values */}
-        <section className="container-wide mb-32">
+        {/* Values (Next-Gen Solutions, etc.) */}
+        <section className="container-wide mb-32 hidden">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
               { letter: "N", title: "Next-Gen Solutions", desc: "We Deliver Cutting-Edge Digital Solutions Using The Latest Technologies To Keep Your Business Ahead Of The Competition." },
@@ -67,28 +66,27 @@ export default function AboutPage() {
         </section>
 
         {/* Vision / Mission / Values */}
-        <section className="container-wide mb-40 pt-20 border-t border-current/10 gsap-reveal">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
-            <div>
-              <h2 className="text-5xl md:text-7xl font-medium tracking-tighter leading-[0.9] mb-8" style={{ fontFamily: "Author, sans-serif" }}>
-                Empowering Businesses:<span className="block">Inspiring Innovation</span><span className="block">And Experiences</span>
+        <section className="container-wide mb-40 pt-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            <div className="lg:col-span-5">
+              <h2 className="text-6xl md:text-8xl lg:text-[110px] font-medium tracking-tighter leading-[0.85] sticky top-32" style={{ fontFamily: "Author, sans-serif" }}>
+                Empowering<span className="block">Businesses:</span><span className="block">Inspiring</span><span className="block">Innovation</span><span className="block">And</span><span className="block">Experiences</span>
               </h2>
             </div>
-            <div />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {[
-              { num: "01", label: "Vision", title: "Next Digital Success", desc: "We Envision A World Where Every Business Has Access To World-Class Digital Solutions That Drive Growth, Innovation, And Lasting Success." },
-              { num: "02", label: "Mission", title: "From Idea To Impact", desc: "To Bridge The Gap Between Concept And Execution. We Empower Businesses To Launch High-Performance Digital Products Designed To Drive Sustainable Growth." },
-              { num: "03", label: "Values", title: "Radical Transparency", desc: "Collaboration, Results, And Integrity. Every Solution We Build Is Guided By A Commitment To Uncompromising Quality And Client Satisfaction." },
-            ].map((item) => (
-              <div key={item.num} className="gsap-reveal">
-                <p className="text-xs font-mono opacity-40 mb-4">{`[${item.num} // ${item.label}]`}</p>
-                <h3 className="text-2xl font-medium mb-4">{item.title}</h3>
-                <p className="text-sm opacity-60 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
+            
+            <div className="lg:col-span-7 flex flex-col gap-24 pt-4 lg:pl-16">
+              {[
+                { num: "01", label: "Vision", title: "Crafting The Digital Future", desc: "We Design And Develop Scalable Digital Solutions For Modern Businesses. From Front-End Development To Full-Stack Systems, We Turn Complex Ideas Into Powerful Digital Experiences." },
+                { num: "02", label: "Mission", title: "From Idea To Impact", desc: "To Bridge The Gap Between Concept And Execution. We Empower Businesses To Launch High-Performance Products Designed Not Just To Function, But To Drive Sustainable Business Growth." },
+                { num: "03", label: "Values", title: "Radical Transparency", desc: "Collaboration, Results, And Integrity. Every Solution We Build Is Guided By A Commitment To Uncompromising Quality, Ensuring You Have Reliable Technology That Secures Your Success." },
+              ].map((item) => (
+                <div key={item.num} className="gsap-reveal">
+                  <p className="text-[10px] font-mono tracking-[0.2em] uppercase opacity-40 mb-4">{`[${item.num} // ${item.label}]`}</p>
+                  <h3 className="text-3xl md:text-4xl font-medium tracking-tight mb-6">{item.title}</h3>
+                  <p className="text-lg md:text-xl font-medium opacity-40 leading-relaxed max-w-2xl">{item.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -112,19 +110,28 @@ export default function AboutPage() {
 
 
         {/* CTA */}
-        <section className="container-wide mt-40 pt-20 border-t border-current/10 gsap-reveal">
-          <div className="flex flex-col gap-10 max-w-4xl">
-            <p className="text-xs uppercase tracking-[0.2em] opacity-40">Get In Touch</p>
-            <h2 className="text-4xl sm:text-5xl md:text-7xl font-medium leading-[0.85] tracking-tighter" style={{ fontFamily: "Author, sans-serif" }}>
-              Have A Project To<span className="block">Collaborate On?</span>
-            </h2>
-            <p className="text-sm uppercase tracking-widest opacity-40">Get A Quote</p>
-            <p className="text-lg opacity-70 max-w-xl leading-relaxed">
-              If you think we can do the job for you, do not hesitate. Drop us a message or call us for any web development, digital marketing, or AI/ML services anywhere in the world.
+        <section className="container-wide mt-40 pt-20 pb-16">
+          <div className="flex flex-col gap-0">
+            <p className="text-[10px] uppercase tracking-[0.3em] opacity-40 mb-8 font-mono">Get In Touch</p>
+
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-4">
+              <h2 className="text-5xl md:text-7xl lg:text-8xl font-medium leading-[0.9] tracking-tighter max-w-4xl" style={{ fontFamily: "Author, sans-serif" }}>
+                Have A Project To<span className="block">Collaborate On?</span>
+              </h2>
+              <Link
+                href="/contact"
+                className="shrink-0 inline-flex items-center gap-4 bg-black text-white px-8 py-4 text-[10px] font-medium uppercase tracking-[0.2em] hover:opacity-80 transition-opacity"
+              >
+                Get A Quote
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg>
+              </Link>
+            </div>
+
+            <div className="w-full h-[1px] bg-current/10 my-8" />
+
+            <p className="text-sm opacity-60">
+              If you think we can do the job for you, do not hesitate. Drop us a message/call us for any web services in Gujarat or<br />anywhere in world.
             </p>
-            <Link href="/contact" className="btn-pro self-start px-8 py-4 text-[10px]">
-              Start Project ↗
-            </Link>
           </div>
         </section>
 
