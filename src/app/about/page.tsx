@@ -28,14 +28,14 @@ export default function AboutPage() {
         <h1 className="sr-only">About Us - Nextron Solution | Web Development & Digital Marketing</h1>
 
         {/* Hero Header */}
-        <section className="container-wide pt-[15vh] mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-16">
+        <section className="container-wide pt-[15vh] mb-24 flex flex-col xl:flex-row justify-between items-start xl:items-end gap-16 border-b border-current/10 pb-20">
           <div className="w-full md:w-1/2 flex flex-col">
             <h2 className="text-6xl sm:text-8xl md:text-[140px] lg:text-[180px] font-medium tracking-tighter leading-[0.8] mb-8 whitespace-nowrap" style={{ fontFamily: "Author, sans-serif" }}>
               About Us
             </h2>
             <div className="w-32 h-[1px] bg-current opacity-40" />
           </div>
-          <div className="w-full md:w-1/2 flex flex-col items-start md:items-end text-left md:text-right pb-4">
+          <div className="flex flex-col items-start xl:items-end text-left xl:text-right pb-4 w-full">
             <p className="text-[10px] font-mono opacity-40 tracking-widest uppercase mb-4">[Nextron Solution]</p>
             <p className="text-xl md:text-2xl lg:text-3xl font-medium leading-[1.4] opacity-50 max-w-2xl text-balance">
               As A Leading Web Development Company In Gujarat, We Don&apos;t Just Build Software. We Craft Digital Legacies Through Precision Engineering And Strategic Design.
