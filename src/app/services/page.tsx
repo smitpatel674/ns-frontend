@@ -171,7 +171,7 @@ export default function ServicesPage() {
         {/* Hero Header */}
         <section className="container-wide pt-[15vh] mb-24 flex flex-col xl:flex-row justify-between items-start xl:items-end gap-16 border-b border-current/10 pb-20">
           <div className="flex flex-col shrink-0">
-            <h2 className="text-[100px] md:text-[140px] lg:text-[180px] font-medium tracking-tighter leading-[0.8] mb-8 whitespace-nowrap" style={{ fontFamily: "Author, sans-serif" }}>
+            <h2 className="text-6xl sm:text-8xl md:text-[140px] lg:text-[180px] font-medium tracking-tighter leading-[0.8] mb-8 whitespace-nowrap" style={{ fontFamily: "Author, sans-serif" }}>
               Our Services
             </h2>
             <div className="w-32 h-[1px] bg-current opacity-40" />

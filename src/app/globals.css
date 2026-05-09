@@ -161,7 +161,7 @@ html.lenis body {
 }
 
 html.lenis {
-  overflow: hidden;
+  height: auto;
 }
 
 .lenis.lenis-smooth {

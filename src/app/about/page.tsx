@@ -30,7 +30,7 @@ export default function AboutPage() {
         {/* Hero Header */}
         <section className="container-wide pt-[15vh] mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-16">
           <div className="w-full md:w-1/2 flex flex-col">
-            <h2 className="text-[120px] lg:text-[180px] font-medium tracking-tighter leading-[0.8] mb-8" style={{ fontFamily: "Author, sans-serif" }}>
+            <h2 className="text-6xl sm:text-8xl md:text-[140px] lg:text-[180px] font-medium tracking-tighter leading-[0.8] mb-8 whitespace-nowrap" style={{ fontFamily: "Author, sans-serif" }}>
               About Us
             </h2>
             <div className="w-32 h-[1px] bg-current opacity-40" />
