@@ -1,12 +1,13 @@
 import Link from "next/link";
 
 const services = [
-  { number: "01", title: "Frontend Project", desc: "Responsive React/Vue based web application with modern UI." },
-  { number: "02", title: "Full Stack App", desc: "Complete MERN/Python Application with Database Integration." },
-  { number: "03", title: "AI/ML Model", desc: "Python-based Machine Learning model with Streamlit interface." },
-  { number: "04", title: "Custom Web App", desc: "Scalable, production-ready web application for business operations." },
-  { number: "05", title: "E-Commerce Store", desc: "Full-featured online store with payment gateway and admin panel." },
-  { number: "06", title: "Digital Marketing", desc: "Data-driven digital marketing services to boost brand visibility, traffic, and conversions." },
+  { number: "01", title: "Web Development", desc: "Modern, responsive websites and web applications built with cutting-edge frameworks for optimal performance." },
+  { number: "02", title: "Digital Marketing", desc: "Data-driven digital marketing strategies to boost brand visibility, traffic, and conversions." },
+  { number: "03", title: "SEO Optimization", desc: "Expert SEO techniques to improve search rankings and drive organic growth for your business." },
+  { number: "04", title: "Mobile Development", desc: "Cross-platform mobile applications with seamless user experience and native performance." },
+  { number: "05", title: "UI/UX Design", desc: "Beautiful, intuitive interface designs that capture your brand identity and convert users effectively." },
+  { number: "06", title: "Analytics & Insights", desc: "Comprehensive analytics and data-driven insights to measure performance and optimize business outcomes." },
+  { number: "07", title: "AI/ML Development", desc: "Intelligent AI and machine learning solutions that automate processes and drive smarter business decisions." },
 ];
 
 export function ServicesSection() {
@@ -22,7 +23,7 @@ export function ServicesSection() {
 
         <div className="max-w-md">
           <p className="text-lg leading-relaxed opacity-70 mb-4">
-            We deploy cross-functional teams to solve complex architectural challenges and build scalable digital products.
+            We deliver comprehensive digital solutions to help businesses grow and succeed in the digital landscape.
           </p>
           <Link href="/services" className="inline-flex items-center text-[10px] uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity border-b border-current/20 pb-1">
             Explore All Services

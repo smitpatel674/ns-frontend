@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -127,10 +128,12 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
     transition: background-color 0.5s, color 0.5s;
   }
+
   html {
     @apply font-sans;
   }
@@ -143,22 +146,17 @@
   }
 
   .btn-pro {
-    @apply inline-flex items-center justify-center font-medium uppercase tracking-wider
-           bg-black text-white border border-black
-           hover:bg-white hover:text-black transition-all duration-300
-           text-[10px] md:text-sm;
+    @apply inline-flex items-center justify-center font-medium uppercase tracking-wider bg-black text-white border border-black hover:bg-white hover:text-black transition-all duration-300 text-[10px] md:text-sm;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center font-medium
-           border border-current/10
-           hover:bg-black hover:text-white transition-all duration-300
-           text-[10px] md:text-sm uppercase tracking-wider;
+    @apply inline-flex items-center justify-center font-medium border border-current/10 hover:bg-black hover:text-white transition-all duration-300 text-[10px] md:text-sm uppercase tracking-wider;
   }
 }
 
 /* Lenis smooth scroll required styles */
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 

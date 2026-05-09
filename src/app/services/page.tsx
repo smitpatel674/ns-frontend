@@ -9,84 +9,26 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 
 const serviceData = [
   {
-    id: "frontend",
+    id: "web-dev",
     number: "01",
-    title: "Frontend Project",
-    desc: "Responsive React/Vue based web application with modern UI.",
+    title: "Web Development",
+    desc: "Modern, responsive websites and web applications built with cutting-edge frameworks for optimal performance.",
     deliverables: [
-      "Responsive & mobile optimization",
-      "Interactive hero section + smooth scroll animations",
-      "Portfolio with filter + case study pages",
-      "Pricing calculator / instant quote generator",
-      "Testimonials (video + rating) + client logos section",
-      "Live chat / WhatsApp floating button + quick enquiry form",
-    ],
-  },
-  {
-    id: "fullstack",
-    number: "02",
-    title: "Full Stack App",
-    desc: "Complete MERN/Python Application with Database Integration.",
-    deliverables: [
-      "Responsive & mobile optimization",
-      "Role-based login (Admin / Client / User)",
-      "Admin dashboard (manage projects, leads, content)",
-      "Payment integration (Razorpay/UPI) + invoices",
-      "Real-time notifications (Email/SMS/In-app)",
-      "Advanced search + filters + export (Excel/PDF)",
-    ],
-  },
-  {
-    id: "ai-ml",
-    number: "03",
-    title: "AI/ML Model",
-    desc: "Python-based Machine Learning model with Streamlit interface.",
-    deliverables: [
-      "AI prediction / classification system",
-      "Model API integration (FastAPI/Flask)",
-      "Real-time results dashboard + charts",
-      "Dataset upload + preprocessing panel",
-      "Model versioning + accuracy tracking",
-      "Explainability (confidence score / reasons)",
-    ],
-  },
-  {
-    id: "custom-web",
-    number: "04",
-    title: "Custom Web App",
-    desc: "Scalable, production-ready web application for business operations.",
-    deliverables: [
-      "Role-based login (Admin/User/Client)",
-      "Admin dashboard (CRUD + management)",
-      "Notifications (Email/SMS/In-app)",
-      "Advanced search + filters",
-      "File upload/download (PDF/Excel/Images)",
-      "Activity logs + user tracking",
-    ],
-  },
-  {
-    id: "ecommerce",
-    number: "05",
-    title: "E-Commerce Store",
-    desc: "Full-featured online store with payment gateway and admin panel.",
-    deliverables: [
-      "Product management (variants, stock, categories)",
-      "Cart + wishlist + checkout flow",
-      "Payment gateway (Razorpay/Stripe/UPI)",
-      "Order tracking + invoice generation",
-      "Coupon/discount system",
-      "Admin analytics (sales, top products, users)",
-      "SEO Optimization",
+      "Responsive & mobile-first design",
+      "Interactive UI with smooth scroll animations",
+      "Custom CMS integration & dynamic content",
+      "E-commerce capabilities & payment integration",
+      "Performance optimization & SEO-ready structure",
+      "API integration & third-party services",
     ],
   },
   {
     id: "digital-marketing",
-    number: "06",
+    number: "02",
     title: "Digital Marketing",
-    desc: "Data-driven digital marketing services to boost brand visibility, traffic, and conversions.",
+    desc: "Data-driven digital marketing strategies to boost brand visibility, traffic, and conversions.",
     deliverables: [
-      "SEO optimization for higher search rankings",
-      "Google Ads & GPT ads campaign management",
+      "Google Ads & PPC campaign management",
       "Meta (Facebook & Instagram) ad campaigns",
       "Content marketing & blog strategy",
       "Email marketing campaigns",
@@ -95,28 +37,84 @@ const serviceData = [
     ],
   },
   {
-    id: "social-media",
-    number: "07",
-    title: "Social Media Management",
-    desc: "Professional social media management to grow brand visibility, engagement, and audience across platforms.",
+    id: "seo",
+    number: "03",
+    title: "SEO Optimization",
+    desc: "Expert SEO techniques to improve search rankings and drive organic growth for your business.",
     deliverables: [
-      "Social media account setup & optimization",
-      "Content planning & post scheduling",
-      "Creative post design & captions",
-      "Audience engagement & comment management",
-      "Monthly analytics & performance reports",
-      "Hashtag strategy & growth optimization",
+      "On-page SEO optimization",
+      "Technical SEO audit & fixes",
+      "Keyword research & strategy",
+      "Link building & authority growth",
+      "Local SEO for Gujarat businesses",
+      "Monthly SEO reports & insights",
+    ],
+  },
+  {
+    id: "mobile-dev",
+    number: "04",
+    title: "Mobile Development",
+    desc: "Cross-platform mobile applications with seamless user experience and native performance.",
+    deliverables: [
+      "React Native / Flutter development",
+      "iOS & Android native apps",
+      "Push notifications & real-time features",
+      "App Store & Play Store deployment",
+      "In-app purchases & subscription models",
+      "App analytics & crash reporting",
+    ],
+  },
+  {
+    id: "ui-ux",
+    number: "05",
+    title: "UI/UX Design",
+    desc: "Beautiful, intuitive interface designs that capture your brand identity and convert users effectively.",
+    deliverables: [
+      "User research & persona development",
+      "Wireframing & prototyping",
+      "Visual design & branding",
+      "Design system creation",
+      "Usability testing & iteration",
+      "Responsive design across devices",
+    ],
+  },
+  {
+    id: "analytics",
+    number: "06",
+    title: "Analytics & Insights",
+    desc: "Comprehensive analytics and data-driven insights to measure performance and optimize business outcomes.",
+    deliverables: [
+      "Google Analytics setup & configuration",
+      "Custom dashboard & reporting",
+      "Conversion tracking & funnel analysis",
+      "User behavior analytics (heatmaps, session recording)",
+      "A/B testing & optimization",
+      "ROI measurement & KPI tracking",
+    ],
+  },
+  {
+    id: "ai-ml",
+    number: "07",
+    title: "AI/ML Development",
+    desc: "Intelligent AI and machine learning solutions that automate processes and drive smarter business decisions.",
+    deliverables: [
+      "AI prediction & classification systems",
+      "Natural Language Processing (NLP)",
+      "Computer vision solutions",
+      "Chatbot & virtual assistant development",
+      "Data pipeline & model deployment",
+      "Custom ML model training & optimization",
     ],
   },
 ];
 
 const methodologySteps = [
-  { number: "01", title: "Research", desc: "Understanding Users, Business Goals, And Market Expectations To Define Clear Design Direction." },
-  { number: "02", title: "Concept", desc: "Transforming Research Insights Into Clear Design Ideas, Structured User Flows, And Intuitive Interaction Models." },
-  { number: "03", title: "Strategy", desc: "Defining Experience Strategies That Align User Needs, Business Goals, And Long-Term Product Vision." },
-  { number: "04", title: "Development", desc: "Creating Scalable, Developer-Ready UI Design Systems For Smooth Implementation." },
-  { number: "05", title: "Testing", desc: "Validating Usability And Performance Through Structured Testing And Real User Feedback Loops." },
-  { number: "06", title: "Handover", desc: "Delivering Final Design Assets, Guidelines, And Documentation For Smooth And Accurate Implementation." },
+  { number: "01", title: "Research", desc: "Understanding Users, Business Goals, And Market Expectations To Define Clear Direction." },
+  { number: "02", title: "Concept", desc: "Transforming Research Insights Into Clear Design Ideas And Structured User Flows." },
+  { number: "03", title: "Strategy", desc: "Defining Experience Strategies That Align User Needs And Business Goals." },
+  { number: "04", title: "Development", desc: "Creating Scalable, Production-Ready Solutions With Modern Technologies." },
+  { number: "05", title: "Testing", desc: "Validating Usability And Performance Through Structured Testing And Real User Feedback." },
+  { number: "06", title: "Handover", desc: "Delivering Final Assets, Documentation, And Support For Smooth Implementation." },
 ];
 
 export default function ServicesPage() {
@@ -141,29 +139,28 @@ export default function ServicesPage() {
     <>
       <Header />
       <main className="min-h-screen pt-32 pb-20 overflow-x-hidden transition-all duration-500">
-        <h1 className="sr-only">Our Services - Website Development & Design | DVLOP Technologies</h1>
+        <h1 className="sr-only">Our Services - Web Development & Digital Marketing | Nextron Solution</h1>
 
         {/* Hero Header */}
         <section className="container-wide pt-[28vh] mb-32 flex flex-col md:flex-row justify-between items-start md:items-end gap-12 border-b border-current/10 pb-20">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-[0.2em] opacity-40 mb-4">Our Services</p>
             <h2 className="text-5xl md:text-7xl font-medium tracking-tighter leading-[0.9] mb-4" style={{ fontFamily: "Author, sans-serif" }}>
-              DVLOP Strategic Services
+              Nextron Strategic Services
             </h2>
-            <p className="text-xs font-mono opacity-40 mb-8 tracking-wider">OPERATIONAL PROTOCOLS</p>
+            <p className="text-xs font-mono opacity-40 mb-8 tracking-wider">NEXT DIGITAL SUCCESS</p>
             <div className="w-16 h-[2px] bg-current opacity-20 mb-8" />
             <p className="text-lg md:text-xl leading-relaxed opacity-70">
-              We Deploy Elite Web Design And Development Services In Gujarat, Engineered For Scale And Performance.
+              We Deliver Expert Web Development, Digital Marketing, SEO, And AI/ML Services Engineered For Scale And Performance.
             </p>
           </div>
           <div className="opacity-30">
-            <p className="text-xs font-mono">[DVLOP Technologies]</p>
+            <p className="text-xs font-mono">[Nextron Solution]</p>
           </div>
         </section>
 
-        {/* 12-column grid: sidebar + content */}
+        {/* Sidebar + content */}
         <section className="container-wide grid grid-cols-1 lg:grid-cols-12 gap-0 relative items-start">
-          {/* Sidebar - 3 cols */}
           <div className="lg:col-span-3 lg:sticky lg:top-32 self-start border-t lg:border-t-0 lg:border-r border-current/10 pt-8 lg:pt-0">
             <div className="space-y-0">
               {serviceData.map((service) => (
@@ -183,9 +180,8 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          {/* Content - 9 cols */}
           <div className="lg:col-span-9 lg:pl-16 pt-16 lg:pt-32">
-            <p className="text-xs font-mono opacity-40 mb-12 tracking-wider">Protocol Navigation // Active</p>
+            <p className="text-xs font-mono opacity-40 mb-12 tracking-wider">Service Details // Active</p>
             <p className="text-xs opacity-40 font-mono mb-4">{activeData.number}</p>
             <h3 className="text-3xl md:text-4xl font-medium mb-4">{activeData.title}</h3>
             <p className="text-lg opacity-70 mb-12">{activeData.desc}</p>
@@ -203,7 +199,7 @@ export default function ServicesPage() {
             </div>
 
             <Link href="/contact" className="btn-pro px-8 py-4 text-[10px]">
-              Start Protocol
+              Get Started
             </Link>
           </div>
         </section>

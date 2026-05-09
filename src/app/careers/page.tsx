@@ -25,7 +25,7 @@ export default function CareersPage() {
     <>
       <Header />
       <main className="min-h-screen pt-32 pb-20 overflow-x-hidden transition-all duration-500">
-        <h1 className="sr-only">Careers at DVLOP - Join Our Team | Jobs in Gujarat</h1>
+        <h1 className="sr-only">Careers at Nextron Solution - Join Our Team | Jobs in Gujarat</h1>
 
         {/* Hero */}
         <section className="container-wide pt-20 mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
@@ -36,15 +36,15 @@ export default function CareersPage() {
             </h2>
             <div className="w-16 h-[2px] bg-current opacity-20 mb-8" />
             <p className="text-lg md:text-xl leading-relaxed opacity-70">
-              We Are Building The Future Of Digital Infrastructure. Join Us In Our Mission To Create Exceptional Technology.
+              We Are Building The Future Of Digital Solutions. Join Us In Our Mission To Create Exceptional Technology — Next Digital Success.
             </p>
           </div>
           <div className="opacity-30">
-            <p className="text-xs font-mono">[DVLOP Technologies]</p>
+            <p className="text-xs font-mono">[Nextron Solution]</p>
           </div>
         </section>
 
-        {/* E.X.I Values */}
+        {/* Values */}
         <section className="container-wide mb-40">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
@@ -85,7 +85,7 @@ export default function CareersPage() {
               Become Part Of<span className="block">The Team.</span>
             </h2>
             <p className="text-lg opacity-70 mb-8 max-w-xl leading-relaxed">
-              We Are Always Looking For Talented Professionals To Join Our Collective. If You Are Ready For A New Challenge, We Want To Hear From You.
+              We Are Always Looking For Talented Professionals To Join Our Team. If You Are Ready For A New Challenge, We Want To Hear From You.
             </p>
             <Link href="/contact" className="btn-pro px-8 py-4 text-[10px]">
               Apply Now

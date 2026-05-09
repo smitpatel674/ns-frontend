@@ -25,7 +25,7 @@ export default function AboutPage() {
     <>
       <Header />
       <main className="min-h-screen pt-32 pb-20 overflow-x-hidden transition-all duration-500">
-        <h1 className="sr-only">About Us - DVLOP Technologies | Web Development Company</h1>
+        <h1 className="sr-only">About Us - Nextron Solution | Web Development & Digital Marketing</h1>
 
         {/* Hero Header */}
         <section className="container-wide pt-20 mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
@@ -36,26 +36,26 @@ export default function AboutPage() {
             </h2>
             <div className="w-16 h-[2px] bg-current opacity-20 mb-8" />
             <p className="text-lg md:text-xl leading-relaxed opacity-70">
-              As A Leading Web Development Company In Gujarat, We Don&apos;t Just Build Software. We Craft Digital Legacies Through Precision Engineering And Strategic Design.
+              As A Leading Web Development & Digital Marketing Company In Gujarat, We Don&apos;t Just Build Websites. We Craft Digital Success Stories Through Innovation And Strategic Design.
             </p>
           </div>
           <div className="opacity-30">
-            <p className="text-xs font-mono">[DVLOP Technologies]</p>
+            <p className="text-xs font-mono">[Nextron Solution]</p>
           </div>
         </section>
 
         {/* Wide Hero Image */}
         <div className="w-full aspect-[21/9] bg-current/5 mb-32 overflow-hidden relative group border-y border-current/10">
-          <img src="/images/about-hero.jpg" alt="DVLOP Technologies Studio" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <img src="/images/about-hero.jpg" alt="Nextron Solution Studio" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
         </div>
 
-        {/* V.I.C.E Values */}
+        {/* Values */}
         <section className="container-wide mb-32">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
-              { letter: "V", title: "Velocity", desc: "We Operate With Extreme Focus, Delivering High-Velocity Output Without Compromising Structural Integrity." },
-              { letter: "I", title: "Integrity", desc: "Code Is Duty. We Build With Security And Scalability As Non-Negotiable Fundamentals From Day Zero." },
-              { letter: "C", title: "Collective", desc: "A Specialized Network Of Senior Talent, Assembled Dynamically To Solve Specific, Complex Challenges." },
+              { letter: "N", title: "Next-Gen Solutions", desc: "We Deliver Cutting-Edge Digital Solutions Using The Latest Technologies To Keep Your Business Ahead Of The Competition." },
+              { letter: "D", title: "Digital Excellence", desc: "Every Project Is Built With A Focus On Quality, Performance, And User Experience To Drive Real Business Results." },
+              { letter: "S", title: "Strategic Growth", desc: "We Combine Web Development, SEO, And Digital Marketing To Create Comprehensive Growth Strategies For Your Business." },
             ].map((v) => (
               <div key={v.letter} className="border-t border-current/10 pt-8 gsap-reveal">
                 <div className="text-4xl font-light opacity-20 mb-4" style={{ fontFamily: "Author, sans-serif" }}>{v.letter}</div>
@@ -79,9 +79,9 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
-              { num: "01", label: "Vision", title: "Crafting The Digital Future", desc: "We Design And Develop Scalable Digital Solutions For Modern Businesses. From Front-End Development To Full-Stack Systems, We Turn Complex Ideas Into Powerful Digital Experiences." },
-              { num: "02", label: "Mission", title: "From Idea To Impact", desc: "To Bridge The Gap Between Concept And Execution. We Empower Businesses To Launch High-Performance Products Designed Not Just To Function, But To Drive Sustainable Business Growth." },
-              { num: "03", label: "Values", title: "Radical Transparency", desc: "Collaboration, Results, And Integrity. Every Solution We Build Is Guided BY A Commitment To Uncompromising Quality, Ensuring You Have Reliable Technology That Secures Your Success." },
+              { num: "01", label: "Vision", title: "Next Digital Success", desc: "We Envision A World Where Every Business Has Access To World-Class Digital Solutions That Drive Growth, Innovation, And Lasting Success." },
+              { num: "02", label: "Mission", title: "From Idea To Impact", desc: "To Bridge The Gap Between Concept And Execution. We Empower Businesses To Launch High-Performance Digital Products Designed To Drive Sustainable Growth." },
+              { num: "03", label: "Values", title: "Radical Transparency", desc: "Collaboration, Results, And Integrity. Every Solution We Build Is Guided By A Commitment To Uncompromising Quality And Client Satisfaction." },
             ].map((item) => (
               <div key={item.num} className="gsap-reveal">
                 <p className="text-xs font-mono opacity-40 mb-4">{`[${item.num} // ${item.label}]`}</p>
@@ -94,11 +94,12 @@ export default function AboutPage() {
 
         {/* Stats */}
         <section className="container-wide mb-32">
-          <div className="grid grid-cols-1 md:grid-cols-3 border border-current/10 divide-y md:divide-y-0 md:divide-x divide-current/10 gsap-reveal">
+          <div className="grid grid-cols-2 md:grid-cols-4 border border-current/10 divide-y md:divide-y-0 md:divide-x divide-current/10 gsap-reveal">
             {[
-              { num: "4+", label: "Years Of Agency Experience" },
-              { num: "50+", label: "Quality Websites Delivered" },
-              { num: "100%", label: "Clients Satisfied & Retention" },
+              { num: "5+", label: "Projects Completed" },
+              { num: "2+", label: "Years Experience" },
+              { num: "3+", label: "Happy Clients" },
+              { num: "100%", label: "Client Satisfaction" },
             ].map((s) => (
               <div key={s.label} className="text-center py-12">
                 <div className="text-4xl md:text-5xl font-medium mb-2" style={{ fontFamily: "Author, sans-serif" }}>{s.num}</div>
@@ -108,69 +109,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Leadership */}
-        <section className="container-wide mb-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] opacity-40 mb-4">[Leadership]</p>
-              <h2 className="text-5xl md:text-7xl font-medium tracking-tighter leading-[0.9] mb-8" style={{ fontFamily: "Author, sans-serif" }}>
-                Leadership
-              </h2>
-            </div>
-            <div className="flex items-end">
-              <p className="text-lg opacity-70 leading-relaxed">
-                The Strategic Force Driving Our Vision And Ensuring Technical Superiority In Every Protocol.
-              </p>
-            </div>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-            {[
-              { name: "Aman Nayak", role: "Founder & Technical Lead", desc: "Leading DVLOP with a focus on technical excellence and scalable digital growth.", image: "/images/aman-nayak.jpg" },
-              { name: "Hiren Dadhaniya", role: "Co-Founder & Project Manager", desc: "Leading DVLOP with a focus on technical excellence and scalable digital growth.", image: "/images/hiren-dadhaniya.jpg" },
-            ].map((leader) => (
-              <div key={leader.name} className="group gsap-reveal">
-                <div className="aspect-[3/4] overflow-hidden rounded-2xl mb-4 border border-current/10">
-                  <img src={leader.image} alt={leader.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                </div>
-                <h3 className="text-lg font-medium mb-1">{leader.name}</h3>
-                <p className="text-[10px] uppercase tracking-widest opacity-40 mb-2">{leader.role}</p>
-                <p className="text-sm opacity-60 leading-relaxed">{leader.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="border-t border-current/10 pt-16 mb-16">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-12">
-              <div>
-                <p className="text-xs uppercase tracking-[0.2em] opacity-40 mb-4">Team</p>
-                <h3 className="text-4xl md:text-5xl font-medium tracking-tighter leading-[0.9]" style={{ fontFamily: "Author, sans-serif" }}>
-                  Team<span className="block">Roster</span>
-                </h3>
-              </div>
-              <div className="flex items-end">
-                <p className="text-sm opacity-50">
-                  [The Collective] A Specialized Network Of Senior Talent Assembled To Solve Specific, Complex Challenges.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { name: "Unnati Dubal", role: "Graphic Designer", image: "/images/unnati-dubal.jpg" },
-              { name: "Rahul Chaudhary", role: "Web Developer & Creative Designer", image: "/images/rahul-chaudhary.png" },
-            ].map((member) => (
-              <div key={member.name} className="group gsap-reveal">
-                <div className="aspect-[3/4] overflow-hidden rounded-2xl mb-4 border border-current/10">
-                  <img src={member.image} alt={member.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                </div>
-                <h3 className="text-lg font-medium mb-1">{member.name}</h3>
-                <p className="text-[10px] uppercase tracking-widest opacity-40">{member.role}</p>
-              </div>
-            ))}
-          </div>
-        </section>
 
         {/* CTA */}
         <section className="container-wide mt-40 pt-20 border-t border-current/10 gsap-reveal">
@@ -181,7 +120,7 @@ export default function AboutPage() {
             </h2>
             <p className="text-sm uppercase tracking-widest opacity-40">Get A Quote</p>
             <p className="text-lg opacity-70 max-w-xl leading-relaxed">
-              If you think we can do the job for you, do not hesitate. Drop us a message/call us for any web services in Calicut or anywhere in world.
+              If you think we can do the job for you, do not hesitate. Drop us a message or call us for any web development, digital marketing, or AI/ML services anywhere in the world.
             </p>
             <Link href="/contact" className="btn-pro self-start px-8 py-4 text-[10px]">
               Start Project ↗
@@ -205,9 +144,9 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: "Mitrayana – Senior Care Service Platform", tag: "Full-Stack Development", image: "/images/mitrayana.webp" },
-              { title: "Makhan & Mirch – E-Restaurant Management System", tag: "Full-Stack Development", image: "/images/makhan-mirch.webp" },
-              { title: "Road Traffic Accident Severity Prediction", tag: "AI / Machine Learning", image: "/images/road-traffic-accident.webp" },
+              { title: "Pokar Greens Business Platform", tag: "Web Solutions", image: "/images/pokar.png" },
+              { title: "Wealth Genius Institute Portal", tag: "Web Solutions", image: "/images/wealth.png" },
+              { title: "Metal Made Global Showcase", tag: "Web Solutions", image: "/images/metal made global.jpeg" },
             ].map((project) => (
               <div key={project.title} className="group cursor-pointer gsap-reveal">
                 <div className="aspect-square overflow-hidden mb-6 relative rounded-3xl border border-current/10">

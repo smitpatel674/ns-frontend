@@ -31,7 +31,7 @@ export function Header() {
     >
       <div className="container-wide h-full flex items-center justify-between">
         <Link href="/" className="block">
-          <img src="/V.svg" alt="DVLOP" className="h-[26px] w-auto hover:opacity-80 transition-opacity" />
+          <img src="/images/logo.png" alt="Nextron Solution" className="h-[36px] w-auto hover:opacity-80 transition-opacity" />
         </Link>
 
         <div className="flex items-center gap-10">
@@ -92,14 +92,13 @@ export function Header() {
           <div className="pb-12 px-8 space-y-6">
             <div>
               <p className="text-xs uppercase tracking-widest opacity-40 mb-2">Location</p>
-              <p className="text-sm opacity-70">Sector 12, Gandhinagar</p>
-              <p className="text-sm opacity-70">Gujarat, India — 382010</p>
+              <p className="text-sm opacity-70">Kadi, Gujarat</p>
+              <p className="text-sm opacity-70">India</p>
             </div>
             <div>
               <p className="text-xs uppercase tracking-widest opacity-40 mb-2">Connect</p>
-              <a href="mailto:info.dvlop@gmail.com" className="block text-sm opacity-70 hover:opacity-100 transition-opacity">info.dvlop@gmail.com</a>
-              <a href="tel:+918320723850" className="block text-sm opacity-70 hover:opacity-100 transition-opacity">+91 8320 723 850</a>
-              <a href="tel:+916352496374" className="block text-sm opacity-70 hover:opacity-100 transition-opacity">+91 6352 496 374</a>
+              <a href="mailto:nextronsolution@gmail.com" className="block text-sm opacity-70 hover:opacity-100 transition-opacity">nextronsolution@gmail.com</a>
+              <a href="tel:+919586141881" className="block text-sm opacity-70 hover:opacity-100 transition-opacity">+91 9586 141 881</a>
             </div>
           </div>
         </div>

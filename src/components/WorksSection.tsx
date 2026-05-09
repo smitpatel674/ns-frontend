@@ -4,28 +4,32 @@ import Link from "next/link";
 
 const projects = [
   {
-    title: "KALAPI FASHION",
-    desc: "Modern MERN stack fashion e-commerce platform with product management, secure Razorpay payments, responsive UI, and seamless checkout experience.",
-    image: "/images/kalapi-fashion.png",
-    tag: "E-Commerce Store",
+    title: "Pokar Greens Business Platform",
+    desc: "A comprehensive business platform showcasing sustainable agricultural solutions with modern e-commerce capabilities and supply chain management features.",
+    image: "/images/pokar.png",
+    tag: "Web Solutions",
+    tech: ["React", "Tailwind CSS", "GSAP", "Node.js"],
   },
   {
-    title: "Ashion",
-    desc: "A full-featured e-commerce platform built with Python Flask, featuring role-based access control and secure payments.",
-    image: "/images/ashion.jpg",
-    tag: "Full-Stack Development",
+    title: "Wealth Genius Institute Portal",
+    desc: "An advanced educational platform for stock market training with interactive courses, real-time market data integration, and student performance analytics.",
+    image: "/images/wealth.png",
+    tag: "Web Solutions",
+    tech: ["Next.js", "TypeScript", "Framer Motion", "Firebase"],
   },
   {
-    title: "Prysmor Website – Complete Modernization",
-    desc: "A fully modernized company website featuring responsive design, performance optimization, and dynamic content integration.",
-    image: "/images/prysmor.jpg",
-    tag: "Full-Stack Development / UI Modernization",
+    title: "Metal Made Global Showcase",
+    desc: "A dynamic corporate website featuring an extensive product catalog, project galleries, and client collaboration tools for international manufacturing partnerships.",
+    image: "/images/metal made global.jpeg",
+    tag: "Web Solutions",
+    tech: ["React", "Node.js", "MongoDB", "Three.js"],
   },
   {
-    title: "CCMS – Cyber Cafe Management System",
-    desc: "A production-ready, full-stack Cyber Cafe Management System designed to digitize and automate operations for cyber cafes and common service centers. Features include PC session management, smart appointment booking (In-Person & Virtual), secure video conferencing (WebRTC/Jitsi), AI-powered chat assistant (Google Gemini), real-time support chat, QR-based tracking, billing & wallet system, delivery partner module, analytics dashboard, and Razorpay payment integration with role-based access control.",
-    image: "/images/ccms.jpg",
-    tag: "Full Stack Development",
+    title: "NBFAB Tech Solutions",
+    desc: "A cutting-edge technology solutions provider website with service portfolios, case study presentations, and technical documentation for enterprise clients.",
+    image: "/images/bnfabtech.png",
+    tag: "Web Solutions",
+    tech: ["Vue.js", "Express", "PostgreSQL", "D3.js"],
   },
 ];
 
@@ -35,12 +39,11 @@ export function WorksSection() {
       <div className="container-wide">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] opacity-40 mb-4">Case Studies</p>
+            <p className="text-xs uppercase tracking-[0.2em] opacity-40 mb-4">Our Showcase</p>
             <h2 className="text-5xl md:text-7xl font-medium tracking-tighter leading-[0.9]" style={{ fontFamily: "Author, sans-serif" }}>
               Our Selected<span className="block">Work</span>
             </h2>
           </div>
-
           <div className="flex items-end gap-6">
             <Link href="/projects" className="inline-flex items-center text-[10px] uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity border-b border-current/20 pb-1">
               Full Portfolio
@@ -48,7 +51,7 @@ export function WorksSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project) => (
             <div key={project.title} className="group cursor-pointer">
               <div className="aspect-square overflow-hidden mb-6 relative rounded-3xl">
@@ -58,7 +61,12 @@ export function WorksSection() {
               <h3 className="text-xl font-medium tracking-tight leading-none group-hover:translate-x-1 transition-transform duration-300 mb-3">
                 {project.title}
               </h3>
-              <p className="text-sm opacity-50 leading-relaxed">{project.desc}</p>
+              <p className="text-sm opacity-50 leading-relaxed mb-3">{project.desc}</p>
+              <div className="flex flex-wrap gap-2">
+                {project.tech.map((t) => (
+                  <span key={t} className="text-[9px] uppercase tracking-wider opacity-40 border border-current/10 px-2 py-1 rounded">{t}</span>
+                ))}
+              </div>
             </div>
           ))}
         </div>

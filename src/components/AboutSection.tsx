@@ -11,16 +11,17 @@ export function AboutSection() {
 
         <div className="lg:w-2/3">
           <p className="text-lg leading-relaxed opacity-70 mb-8">
-            DVLOP Technologies is a leading web development company in Gujarat, delivering innovative digital solutions that drive business success. We specialize in custom web development, e-commerce platforms, and AI-powered software, enabling startups and enterprises to build scalable, high-performance products for sustainable growth.
+            Nextron Solution is a leading web development and digital marketing company in Gujarat, India. We offer expert web development, digital marketing, SEO optimization, UI/UX design, mobile development, analytics, and AI/ML development services. We empower startups and enterprises to build scalable, high-performance digital products for sustainable growth — Next Digital Success.
           </p>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 border border-current/10 divide-y md:divide-y-0 md:divide-x divide-current/10 gsap-fade-up">
+      <div className="grid grid-cols-2 md:grid-cols-4 border border-current/10 divide-y md:divide-y-0 md:divide-x divide-current/10 gsap-fade-up">
         {[
-          { num: "4+", label: "Years Of Agency Experience" },
-          { num: "50+", label: "Quality Websites Delivered" },
-          { num: "100%", label: "Clients Satisfied & Retention" },
+          { num: "5+", label: "Projects Completed" },
+          { num: "2+", label: "Years Experience" },
+          { num: "3+", label: "Happy Clients" },
+          { num: "100%", label: "Client Satisfaction" },
         ].map((s) => (
           <div key={s.label} className="text-center py-12">
             <div className="text-4xl md:text-5xl font-medium mb-2" style={{ fontFamily: "Author, sans-serif" }}>{s.num}</div>
