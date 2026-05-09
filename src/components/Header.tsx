@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -16,12 +17,23 @@ const navLinks = [
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (pathname === href) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    if (mobileMenuOpen) {
+      setMobileMenuOpen(false);
+    }
+  };
 
   return (
     <header
@@ -30,7 +42,7 @@ export function Header() {
       `}
     >
       <div className="container-wide h-full flex items-center justify-between">
-        <Link href="/" className="block">
+        <Link href="/" onClick={(e) => handleLinkClick(e, "/")} className="block">
           <img src="/images/logo.png" alt="Nextron Solution" className="h-[36px] w-auto hover:opacity-80 transition-opacity" />
         </Link>
 
@@ -40,6 +52,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleLinkClick(e, link.href)}
                 className="text-[12px] font-medium opacity-60 hover:opacity-100 uppercase tracking-widest flex items-center gap-[6px] relative group/link py-4 transition-opacity duration-150"
               >
                 {link.label}
@@ -50,6 +63,7 @@ export function Header() {
 
           <Link
             href="/contact"
+            onClick={(e) => handleLinkClick(e, "/contact")}
             className="hidden md:inline-flex items-center justify-center font-medium uppercase tracking-wider bg-black text-white border border-black hover:bg-white hover:text-black transition-all duration-300 text-[10px] px-8 py-3"
           >
             Let&apos;s Talk
@@ -81,7 +95,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleLinkClick(e, link.href)}
                 className="flex items-center gap-4 text-3xl font-medium uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity"
               >
                 <span className="text-lg opacity-40">{link.number}</span>

@@ -137,12 +137,11 @@ const serviceData = [
 ];
 
 const methodologySteps = [
-  { number: "01", title: "Research", desc: "Understanding Users, Business Goals, And Market Expectations To Define Clear Direction." },
-  { number: "02", title: "Concept", desc: "Transforming Research Insights Into Clear Design Ideas And Structured User Flows." },
-  { number: "03", title: "Strategy", desc: "Defining Experience Strategies That Align User Needs And Business Goals." },
-  { number: "04", title: "Development", desc: "Creating Scalable, Production-Ready Solutions With Modern Technologies." },
-  { number: "05", title: "Testing", desc: "Validating Usability And Performance Through Structured Testing And Real User Feedback." },
-  { number: "06", title: "Handover", desc: "Delivering Final Assets, Documentation, And Support For Smooth Implementation." },
+  { number: "01", title: "Discovery & Strategy", desc: "Workshops, audits, and goal-setting. We map the business problem before we open the design tool." },
+  { number: "02", title: "Design & Wireframe", desc: "Interaction design, brand language, and pixel-perfect prototypes — validated against real users." },
+  { number: "03", title: "Development", desc: "Engineering sprints with weekly demos. Production-grade code, fully typed, fully tested." },
+  { number: "04", title: "Testing & QA", desc: "Cross-browser, accessibility, performance, and load tests. We don't ship anything we wouldn't bet on." },
+  { number: "05", title: "Launch & Support", desc: "Smooth deployment, analytics setup, and ongoing partnership — with a named lead on every account." },
 ];
 
 export default function ServicesPage() {
@@ -170,13 +169,12 @@ export default function ServicesPage() {
         <h1 className="sr-only">Our Services - Web Development & Digital Marketing | Nextron Solution</h1>
 
         {/* Hero Header */}
-        <section className="container-wide pt-[28vh] mb-32 flex flex-col md:flex-row justify-between items-start md:items-end gap-12 border-b border-current/10 pb-20">
+        <section className="container-wide pt-20 mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-[0.2em] opacity-40 mb-4">Our Services</p>
-            <h2 className="text-5xl md:text-7xl font-medium tracking-tighter leading-[0.9] mb-4" style={{ fontFamily: "Author, sans-serif" }}>
+            <h2 className="text-5xl md:text-7xl font-medium tracking-tighter leading-[0.9] mb-8" style={{ fontFamily: "Author, sans-serif" }}>
               Nextron Strategic Services
             </h2>
-            <p className="text-xs font-mono opacity-40 mb-8 tracking-wider">NEXT DIGITAL SUCCESS</p>
             <div className="w-16 h-[2px] bg-current opacity-20 mb-8" />
             <p className="text-lg md:text-xl leading-relaxed opacity-70">
               We Deliver Expert Web Development, Digital Marketing, SEO, And AI/ML Services Engineered For Scale And Performance.

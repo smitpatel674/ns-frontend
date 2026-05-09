@@ -1,3 +1,53 @@
+"use client";
+
+import { useState, useEffect, useRef } from "react";
+
+function AnimatedNumber({ value, suffix }: { value: number; suffix: string }) {
+  const [count, setCount] = useState(0);
+  const nodeRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const node = nodeRef.current;
+    if (!node) return;
+
+    let startTime: number;
+    let animationFrame: number;
+    
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          const duration = 2000;
+          
+          const step = (timestamp: number) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+            
+            setCount(Math.ceil(easeProgress * value));
+            
+            if (progress < 1) {
+              animationFrame = requestAnimationFrame(step);
+            }
+          };
+          
+          animationFrame = requestAnimationFrame(step);
+          observer.unobserve(node);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    
+    observer.observe(node);
+    
+    return () => {
+      observer.disconnect();
+      if (animationFrame) cancelAnimationFrame(animationFrame);
+    };
+  }, [value]);
+
+  return <span ref={nodeRef}>{count}{suffix}</span>;
+}
+
 export function AboutSection() {
   return (
     <section className="container-wide py-24 relative z-10 gsap-fade-up">
@@ -18,13 +68,15 @@ export function AboutSection() {
 
       <div className="grid grid-cols-2 md:grid-cols-4 border border-current/10 divide-y md:divide-y-0 md:divide-x divide-current/10 gsap-fade-up">
         {[
-          { num: "5+", label: "Projects Completed" },
-          { num: "2+", label: "Years Experience" },
-          { num: "3+", label: "Happy Clients" },
-          { num: "100%", label: "Client Satisfaction" },
+          { value: 5, suffix: "+", label: "Projects Completed" },
+          { value: 2, suffix: "+", label: "Years Experience" },
+          { value: 3, suffix: "+", label: "Happy Clients" },
+          { value: 100, suffix: "%", label: "Client Satisfaction" },
         ].map((s) => (
           <div key={s.label} className="text-center py-12">
-            <div className="text-4xl md:text-5xl font-medium mb-2" style={{ fontFamily: "Author, sans-serif" }}>{s.num}</div>
+            <div className="text-4xl md:text-5xl font-medium mb-2" style={{ fontFamily: "Author, sans-serif" }}>
+              <AnimatedNumber value={s.value} suffix={s.suffix} />
+            </div>
             <p className="text-xs opacity-50 leading-tight">{s.label}</p>
           </div>
         ))}
