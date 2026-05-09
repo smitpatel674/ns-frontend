@@ -25,38 +25,129 @@ function AnimatedCounter() {
 }
 
 export function HeroSection() {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth) * 2 - 1;
+      const y = (e.clientY / window.innerHeight) * 2 - 1;
+      setMousePos({ x, y });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
     <section className="relative min-h-screen pt-[120px] w-full overflow-hidden bg-[var(--bg-color)] text-[var(--text-color)] flex flex-col justify-center">
       <div className="container-wide relative z-10 py-12">
-        <AnimatedCounter />
-        <h1 className="text-5xl md:text-7xl lg:text-9xl font-light tracking-[-0.03em] leading-[0.92] mb-8 text-black" style={{ fontFamily: "Author, sans-serif" }}>
-          <span className="block">DESIGN.</span>
-          <span className="block">DEVELOP.</span>
-          <span className="block">DEPLOY.</span>
-        </h1>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          <div>
+            <AnimatedCounter />
+            <h1 className="text-5xl md:text-7xl lg:text-9xl font-light tracking-[-0.03em] leading-[0.92] mb-8 text-black" style={{ fontFamily: "Author, sans-serif" }}>
+              <span className="block">DESIGN.</span>
+              <span className="block">DEVELOP.</span>
+              <span className="block">DEPLOY.</span>
+            </h1>
 
-        <p className="text-lg md:text-xl max-w-2xl mb-12 opacity-70 leading-relaxed">
-          Next Digital Success — We build high-performance websites, deliver data-driven digital marketing, and craft innovative solutions to accelerate your business growth.
-        </p>
+            <p className="text-lg md:text-xl max-w-2xl mb-12 opacity-70 leading-relaxed">
+              Next Digital Success — We build high-performance websites, deliver data-driven digital marketing, and craft innovative solutions to accelerate your business growth.
+            </p>
 
-        <div className="flex flex-wrap gap-4 mb-16">
-          <Link
-            href="/contact"
-            className="btn-pro px-5 py-3 md:px-8 md:py-4 text-[10px] md:text-sm"
-          >
-            Start Project ↗
-          </Link>
-          <Link
-            href="/services"
-            className="btn-outline px-5 py-3 md:px-8 md:py-4 text-[10px] md:text-sm"
-          >
-            Explore Services
-          </Link>
+            <div className="flex flex-wrap gap-4 mb-16">
+              <Link
+                href="/contact"
+                className="btn-pro px-5 py-3 md:px-8 md:py-4 text-[10px] md:text-sm"
+              >
+                Start Project ↗
+              </Link>
+              <Link
+                href="/services"
+                className="btn-outline px-5 py-3 md:px-8 md:py-4 text-[10px] md:text-sm"
+              >
+                Explore Services
+              </Link>
+            </div>
+
+            <p className="text-xs uppercase tracking-[0.2em] opacity-40">
+              Trusted tech partners delivering proven results — Next Digital Success.
+            </p>
+          </div>
+
+          <div className="hidden lg:flex justify-center items-center relative h-full" style={{ perspective: "1000px" }}>
+            <div 
+              className="relative w-[500px] h-[500px] flex items-center justify-center opacity-80 scale-90 xl:scale-100 transition-transform duration-300 ease-out"
+              style={{
+                transform: `translate(${mousePos.x * -20}px, ${mousePos.y * -20}px) rotateX(${mousePos.y * 10}deg) rotateY(${mousePos.x * -10}deg)`,
+              }}
+            >
+              {/* Spinning Atomic Globe */}
+              <svg viewBox="0 0 200 200" className="w-full h-full animate-[spin_40s_linear_infinite]">
+                <defs>
+                  <linearGradient id="globeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="currentColor" stopOpacity="0.4" />
+                    <stop offset="100%" stopColor="currentColor" stopOpacity="0.05" />
+                  </linearGradient>
+                </defs>
+                {Array.from({ length: 12 }).map((_, i) => (
+                  <ellipse
+                    key={i}
+                    cx="100"
+                    cy="100"
+                    rx="80"
+                    ry="25"
+                    fill="none"
+                    stroke="url(#globeGrad)"
+                    strokeWidth="0.5"
+                    transform={`rotate(${i * 15} 100 100)`}
+                  />
+                ))}
+              </svg>
+              
+              {/* Counter-Spinning Inner Rings */}
+              <div 
+                className="absolute inset-0 flex items-center justify-center animate-[spin_60s_linear_infinite_reverse] transition-transform duration-300 ease-out"
+                style={{
+                  transform: `translate(${mousePos.x * -15}px, ${mousePos.y * -15}px)`,
+                }}
+              >
+                <svg viewBox="0 0 200 200" className="w-[80%] h-[80%]">
+                  {Array.from({ length: 4 }).map((_, i) => (
+                    <circle
+                      key={i}
+                      cx="100"
+                      cy="100"
+                      r={30 + i * 15}
+                      fill="none"
+                      stroke="currentColor"
+                      strokeOpacity={0.1 + i * 0.05}
+                      strokeWidth="0.5"
+                      strokeDasharray="4 6"
+                    />
+                  ))}
+                </svg>
+              </div>
+
+              {/* Center Frosted Badge */}
+              <div 
+                className="absolute w-24 h-24 rounded-full backdrop-blur-md bg-white/10 flex items-center justify-center border border-black/10 shadow-[0_0_40px_rgba(0,0,0,0.05)] transition-transform duration-300 ease-out"
+                style={{
+                  transform: `translate(${mousePos.x * -40}px, ${mousePos.y * -40}px) scale(1.1)`,
+                }}
+              >
+                 <div className="flex flex-col items-center">
+                    <span className="font-mono text-[10px] tracking-widest opacity-40">EST.</span>
+                    <span className="font-medium tracking-widest opacity-80">2024</span>
+                 </div>
+              </div>
+              
+              {/* Floating Nodes */}
+              <div className="absolute top-12 left-1/2 w-2 h-2 bg-black rounded-full blur-[1px] animate-pulse" />
+              <div className="absolute bottom-24 right-20 w-1.5 h-1.5 bg-black rounded-full blur-[1px] animate-pulse delay-75" />
+              <div className="absolute top-1/3 left-16 w-1 h-1 bg-black rounded-full blur-[0.5px] animate-pulse delay-150" />
+            </div>
+          </div>
         </div>
-
-        <p className="text-xs uppercase tracking-[0.2em] opacity-40 mb-12">
-          Trusted tech partners delivering proven results — Next Digital Success.
-        </p>
 
         <div className="grid grid-cols-2 md:grid-cols-5 border border-current/10">
           {[
