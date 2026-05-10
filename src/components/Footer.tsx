@@ -1,11 +1,12 @@
 import Link from "next/link";
+import { motionDelay } from "@/lib/motion";
 
 export function Footer() {
   return (
     <footer className="py-32 border-t border-current/10 transition-colors duration-500">
       <div className="container-wide">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-16">
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2" data-animate="fade-up">
             <Link href="/" className="block mb-8">
               <img src="/images/logo.png" alt="Nextron Solution" className="h-[60px] md:h-[80px] w-auto" />
             </Link>
@@ -14,7 +15,7 @@ export function Footer() {
             </h3>
           </div>
 
-          <div>
+          <div data-animate="fade-up" style={motionDelay(1, 80)}>
             <h4 className="text-xs uppercase tracking-[0.2em] opacity-40 mb-6">Follow Us</h4>
             <div className="flex gap-4 mb-8">
               <a href="https://www.linkedin.com/company/nextronsolution/" target="_blank" rel="noopener noreferrer" className="text-sm opacity-60 hover:opacity-100 transition-opacity">
@@ -36,7 +37,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div>
+          <div data-animate="fade-up" style={motionDelay(2, 80)}>
             <h4 className="text-xs uppercase tracking-[0.2em] opacity-40 mb-6">Quick Links</h4>
             <div className="space-y-3">
               <Link href="/about" className="block text-sm opacity-60 hover:opacity-100 transition-opacity">About</Link>
@@ -54,7 +55,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-current/10 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-8 border-t border-current/10 flex flex-col md:flex-row justify-between items-center gap-4" data-animate="fade-up" style={motionDelay(3, 80)}>
           <p className="text-xs uppercase opacity-40">&copy; 2026 NEXTRON SOLUTION. ALL RIGHTS RESERVED.</p>
           <p className="text-xs uppercase opacity-40">Kadi, Gujarat, India</p>
         </div>

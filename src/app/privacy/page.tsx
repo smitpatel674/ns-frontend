@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { motionDelay } from "@/lib/motion";
 
 export default function PrivacyPage() {
   return (
@@ -8,14 +9,14 @@ export default function PrivacyPage() {
       <Header />
       <main className="min-h-screen pt-40 pb-32">
         <div className="container-wide max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-medium tracking-tight mb-8" style={{ fontFamily: "Author, sans-serif" }}>
+          <h1 className="text-4xl md:text-6xl font-medium tracking-tight mb-8" style={{ fontFamily: "Author, sans-serif" }} data-animate="fade-up">
             Privacy Policy
           </h1>
-          <p className="text-sm opacity-50 mb-12 font-mono uppercase tracking-widest">
+          <p className="text-sm opacity-50 mb-12 font-mono uppercase tracking-widest" data-animate="fade-up" style={motionDelay(1, 80)}>
             Last Updated: May 2024
           </p>
 
-          <div className="space-y-12 text-base md:text-lg opacity-80 leading-relaxed">
+          <div className="space-y-12 text-base md:text-lg opacity-80 leading-relaxed" data-animate="fade-up" style={motionDelay(2, 80)}>
             <section>
               <h2 className="text-2xl font-medium mb-4 text-black">1. Introduction</h2>
               <p>

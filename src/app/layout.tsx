@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SiteMotion } from "@/components/SiteMotion";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -26,7 +27,10 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" />
         <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=author@200,300,400,500&display=swap" />
       </head>
-      <body className="min-h-full flex flex-col bg-[var(--bg-color)] text-[var(--text-color)] font-['General Sans',sans-serif]">{children}</body>
+      <body className="min-h-full flex flex-col bg-[var(--bg-color)] text-[var(--text-color)] font-['General Sans',sans-serif]">
+        <SiteMotion />
+        {children}
+      </body>
     </html>
   );
 }

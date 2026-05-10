@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Lenis from "@studio-freight/lenis";
+import { useState } from "react";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { motionDelay } from "@/lib/motion";
 
 const serviceData = [
   {
@@ -147,19 +147,6 @@ const methodologySteps = [
 export default function ServicesPage() {
   const [activeService, setActiveService] = useState(serviceData[0].id);
 
-  useEffect(() => {
-    const lenis = new Lenis({ duration: 1.2, easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
-    function raf(time: number) { lenis.raf(time); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
-    return () => lenis.destroy();
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => { entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("is-visible"); }); }, { threshold: 0.1 });
-    document.querySelectorAll(".gsap-reveal").forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
   const activeData = serviceData.find((s) => s.id === activeService) || serviceData[0];
 
   return (
@@ -170,13 +157,13 @@ export default function ServicesPage() {
 
         {/* Hero Header */}
         <section className="container-wide pt-[15vh] mb-24 flex flex-col xl:flex-row justify-between items-start xl:items-end gap-16 border-b border-current/10 pb-20">
-          <div className="flex flex-col shrink-0">
+          <div className="flex flex-col shrink-0" data-animate="fade-up">
             <h2 className="text-6xl sm:text-8xl md:text-[140px] lg:text-[180px] font-medium tracking-tighter leading-[0.8] mb-8 whitespace-nowrap" style={{ fontFamily: "Author, sans-serif" }}>
               Our Services
             </h2>
             <div className="w-32 h-[1px] bg-current opacity-40" />
           </div>
-          <div className="flex flex-col items-start xl:items-end text-left xl:text-right pb-4 w-full">
+          <div className="flex flex-col items-start xl:items-end text-left xl:text-right pb-4 w-full" data-animate="fade-left" style={motionDelay(1, 120)}>
             <p className="text-[10px] font-mono opacity-40 tracking-widest uppercase mb-4">[Nextron Solution]</p>
             <p className="text-xl md:text-2xl lg:text-3xl font-medium leading-[1.4] opacity-50 max-w-2xl text-balance">
               We Deploy Elite Web Design And Development Services In Gujarat, Engineered For Scale And Performance.
@@ -186,12 +173,13 @@ export default function ServicesPage() {
 
         {/* Sidebar + content */}
         <section className="container-wide grid grid-cols-1 lg:grid-cols-12 gap-0 relative items-start">
-          <div className="lg:col-span-3 lg:sticky lg:top-32 self-start border-t lg:border-t-0 lg:border-r border-current/10 pt-8 lg:pt-0">
+          <div className="lg:col-span-3 lg:sticky lg:top-32 self-start border-t lg:border-t-0 lg:border-r border-current/10 pt-8 lg:pt-0" data-animate="fade-right">
             <div className="space-y-0">
-              {serviceData.map((service) => (
+              {serviceData.map((service, index) => (
                 <button
                   key={service.id}
                   onClick={() => setActiveService(service.id)}
+                  style={motionDelay(index, 35)}
                   className={`w-full text-left px-6 py-3 text-[10px] font-medium tracking-[0.3em] transition-all duration-300 border-l-2 ${
                     activeService === service.id
                       ? "border-current text-current"
@@ -205,7 +193,7 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-9 lg:pl-16 pt-16 lg:pt-32">
+          <div key={activeData.id} className="lg:col-span-9 lg:pl-16 pt-16 lg:pt-32" data-animate="fade-up" style={motionDelay(1, 100)}>
             <p className="text-xs font-mono opacity-40 mb-12 tracking-wider">Service Details // Active</p>
             <p className="text-xs opacity-40 font-mono mb-4">{activeData.number}</p>
             <h3 className="text-3xl md:text-4xl font-medium mb-4">{activeData.title}</h3>
@@ -215,7 +203,7 @@ export default function ServicesPage() {
               <h4 className="text-xs uppercase tracking-[0.2em] opacity-40 mb-8">Deliverables</h4>
               <div className="space-y-4">
                 {activeData.deliverables.map((d, i) => (
-                  <div key={i} className="flex gap-4 items-start">
+                  <div key={i} className="flex gap-4 items-start gsap-reveal" style={motionDelay(i, 45)}>
                     <span className="text-xs opacity-40 font-mono min-w-[24px]">{String(i + 1).padStart(2, "0")}</span>
                     <p className="text-sm opacity-70">{d}</p>
                   </div>
@@ -242,8 +230,8 @@ export default function ServicesPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            {methodologySteps.map((step) => (
-              <div key={step.number} className="border-t border-current/10 pt-8">
+            {methodologySteps.map((step, index) => (
+              <div key={step.number} className="border-t border-current/10 pt-8 gsap-reveal motion-card" style={motionDelay(index, 70)}>
                 <p className="text-xs font-mono opacity-40 mb-4">{`[Step // ${step.number}]`}</p>
                 <h3 className="text-xl font-medium mb-3">{step.title}</h3>
                 <p className="text-sm opacity-60 leading-relaxed">{step.desc}</p>

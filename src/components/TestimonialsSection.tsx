@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { motionDelay } from "@/lib/motion";
 
 const testimonials = [
   {
@@ -48,10 +49,11 @@ export function TestimonialsSection() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {testimonials.map((testimonial) => (
+        {testimonials.map((testimonial, index) => (
           <div
             key={testimonial.name}
-            className="bg-black text-white rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[320px]"
+            className="bg-black text-white rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[320px] gsap-reveal motion-card"
+            style={motionDelay(index, 85)}
           >
             <div className="flex justify-between items-start mb-8">
               <div className="flex gap-1 text-yellow-400 text-sm">

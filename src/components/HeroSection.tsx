@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { motionDelay } from "@/lib/motion";
 
 function AnimatedCounter() {
   const [values, setValues] = useState(["0", "0", "0"]);
@@ -43,18 +44,20 @@ export function HeroSection() {
       <div className="container-wide relative z-10 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
-            <AnimatedCounter />
+            <div data-animate="fade-up">
+              <AnimatedCounter />
+            </div>
             <h1 className="text-5xl md:text-7xl lg:text-9xl font-light tracking-[-0.03em] leading-[0.92] mb-8 text-black" style={{ fontFamily: "Author, sans-serif" }}>
-              <span className="block">DESIGN.</span>
-              <span className="block">DEVELOP.</span>
-              <span className="block">DEPLOY.</span>
+              <span className="block" data-animate="fade-up" style={motionDelay(1, 80)}>DESIGN.</span>
+              <span className="block" data-animate="fade-up" style={motionDelay(2, 80)}>DEVELOP.</span>
+              <span className="block" data-animate="fade-up" style={motionDelay(3, 80)}>DEPLOY.</span>
             </h1>
 
-            <p className="text-lg md:text-xl max-w-2xl mb-12 opacity-70 leading-relaxed">
+            <p className="text-lg md:text-xl max-w-2xl mb-12 opacity-70 leading-relaxed" data-animate="fade-up" style={motionDelay(4, 80)}>
               Next Digital Success — We build high-performance websites, deliver data-driven digital marketing, and craft innovative solutions to accelerate your business growth.
             </p>
 
-            <div className="flex flex-wrap gap-4 mb-16">
+            <div className="flex flex-wrap gap-4 mb-16" data-animate="fade-up" style={motionDelay(5, 80)}>
               <Link
                 href="/contact"
                 className="btn-pro px-5 py-3 md:px-8 md:py-4 text-[10px] md:text-sm"
@@ -69,12 +72,12 @@ export function HeroSection() {
               </Link>
             </div>
 
-            <p className="text-xs uppercase tracking-[0.2em] opacity-40">
+            <p className="text-xs uppercase tracking-[0.2em] opacity-40" data-animate="fade-up" style={motionDelay(6, 80)}>
               Trusted tech partners delivering proven results — Next Digital Success.
             </p>
           </div>
 
-          <div className="hidden lg:flex justify-center items-center relative h-full" style={{ perspective: "1000px" }}>
+          <div className="hidden lg:flex justify-center items-center relative h-full" style={{ perspective: "1000px" }} data-animate="zoom-in">
             <div 
               className="relative w-[500px] h-[500px] flex items-center justify-center opacity-80 scale-90 xl:scale-100 transition-transform duration-300 ease-out"
               style={{
@@ -182,9 +185,10 @@ export function HeroSection() {
           ].map((item, index) => (
             <div
               key={item.title}
-              className={`p-8 md:p-10 flex flex-col justify-between min-h-[200px] ${
+              className={`p-8 md:p-10 flex flex-col justify-between min-h-[200px] gsap-reveal motion-card ${
                 index > 0 ? "border-l border-current/10" : ""
               } ${index >= 2 ? "border-t md:border-t-0 border-current/10" : ""}`}
+              style={motionDelay(index, 70)}
             >
               <div className="opacity-40 mb-8">{item.icon}</div>
               <div>
@@ -197,7 +201,8 @@ export function HeroSection() {
           {/* Black CTA card */}
           <Link
             href="/contact"
-            className="hidden md:flex flex-col items-center justify-center bg-black text-white min-h-[200px] border-l border-current/10 group/cta hover:bg-black/90 transition-colors"
+            className="hidden md:flex flex-col items-center justify-center bg-black text-white min-h-[200px] border-l border-current/10 group/cta hover:bg-black/90 transition-colors gsap-reveal motion-card"
+            style={motionDelay(4, 70)}
           >
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover/cta:translate-x-1 group-hover/cta:-translate-y-1 transition-transform duration-300"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg>
           </Link>

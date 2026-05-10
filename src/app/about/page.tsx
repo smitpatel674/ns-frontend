@@ -1,26 +1,10 @@
-"use client";
-
-import { useEffect } from "react";
-import Lenis from "@studio-freight/lenis";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { motionDelay } from "@/lib/motion";
 
 export default function AboutPage() {
-  useEffect(() => {
-    const lenis = new Lenis({ duration: 1.2, easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
-    function raf(time: number) { lenis.raf(time); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
-    return () => lenis.destroy();
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => { entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("is-visible"); }); }, { threshold: 0.1 });
-    document.querySelectorAll(".gsap-fade-up, .gsap-reveal").forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <>
       <Header />
@@ -29,13 +13,13 @@ export default function AboutPage() {
 
         {/* Hero Header */}
         <section className="container-wide pt-[15vh] mb-24 flex flex-col xl:flex-row justify-between items-start xl:items-end gap-16 border-b border-current/10 pb-20">
-          <div className="w-full md:w-1/2 flex flex-col">
+          <div className="w-full md:w-1/2 flex flex-col" data-animate="fade-up">
             <h2 className="text-6xl sm:text-8xl md:text-[140px] lg:text-[180px] font-medium tracking-tighter leading-[0.8] mb-8 whitespace-nowrap" style={{ fontFamily: "Author, sans-serif" }}>
               About Us
             </h2>
             <div className="w-32 h-[1px] bg-current opacity-40" />
           </div>
-          <div className="flex flex-col items-start xl:items-end text-left xl:text-right pb-4 w-full">
+          <div className="flex flex-col items-start xl:items-end text-left xl:text-right pb-4 w-full" data-animate="fade-left" style={motionDelay(1, 120)}>
             <p className="text-[10px] font-mono opacity-40 tracking-widest uppercase mb-4">[Nextron Solution]</p>
             <p className="text-xl md:text-2xl lg:text-3xl font-medium leading-[1.4] opacity-50 max-w-2xl text-balance">
               As A Leading Web Development Company In Gujarat, We Don&apos;t Just Build Software. We Craft Digital Legacies Through Precision Engineering And Strategic Design.
@@ -44,8 +28,8 @@ export default function AboutPage() {
         </section>
 
         {/* Wide Hero Image */}
-        <div className="w-full aspect-[21/9] bg-current/5 mb-32 overflow-hidden relative group border-y border-current/10">
-          <img src="/images/about-hero.jpg" alt="Nextron Solution Studio" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+        <div className="w-full aspect-[21/9] bg-current/5 mb-32 overflow-hidden relative group border-y border-current/10" data-animate="clip-up">
+          <img src="/images/about-hero.jpg" alt="Nextron Solution Studio" className="w-full h-full object-cover motion-card-media" />
         </div>
 
         {/* Values (Next-Gen Solutions, etc.) */}
@@ -55,8 +39,8 @@ export default function AboutPage() {
               { letter: "N", title: "Next-Gen Solutions", desc: "We Deliver Cutting-Edge Digital Solutions Using The Latest Technologies To Keep Your Business Ahead Of The Competition." },
               { letter: "D", title: "Digital Excellence", desc: "Every Project Is Built With A Focus On Quality, Performance, And User Experience To Drive Real Business Results." },
               { letter: "S", title: "Strategic Growth", desc: "We Combine Web Development, SEO, And Digital Marketing To Create Comprehensive Growth Strategies For Your Business." },
-            ].map((v) => (
-              <div key={v.letter} className="border-t border-current/10 pt-8 gsap-reveal">
+            ].map((v, index) => (
+              <div key={v.letter} className="border-t border-current/10 pt-8 gsap-reveal motion-card" style={motionDelay(index, 80)}>
                 <div className="text-4xl font-light opacity-20 mb-4" style={{ fontFamily: "Author, sans-serif" }}>{v.letter}</div>
                 <h3 className="text-xl font-medium mb-3">{v.title}</h3>
                 <p className="text-sm opacity-60 leading-relaxed">{v.desc}</p>
@@ -79,8 +63,8 @@ export default function AboutPage() {
                 { num: "01", label: "Vision", title: "Crafting The Digital Future", desc: "We Design And Develop Scalable Digital Solutions For Modern Businesses. From Front-End Development To Full-Stack Systems, We Turn Complex Ideas Into Powerful Digital Experiences." },
                 { num: "02", label: "Mission", title: "From Idea To Impact", desc: "To Bridge The Gap Between Concept And Execution. We Empower Businesses To Launch High-Performance Products Designed Not Just To Function, But To Drive Sustainable Business Growth." },
                 { num: "03", label: "Values", title: "Radical Transparency", desc: "Collaboration, Results, And Integrity. Every Solution We Build Is Guided By A Commitment To Uncompromising Quality, Ensuring You Have Reliable Technology That Secures Your Success." },
-              ].map((item) => (
-                <div key={item.num} className="gsap-reveal">
+              ].map((item, index) => (
+                <div key={item.num} className="gsap-reveal" style={motionDelay(index, 80)}>
                   <p className="text-[10px] font-mono tracking-[0.2em] uppercase opacity-40 mb-4">{`[${item.num} // ${item.label}]`}</p>
                   <h3 className="text-3xl md:text-4xl font-medium tracking-tight mb-6">{item.title}</h3>
                   <p className="text-lg md:text-xl font-medium opacity-40 leading-relaxed max-w-2xl">{item.desc}</p>
@@ -98,8 +82,8 @@ export default function AboutPage() {
               { num: "2+", label: "Years Experience" },
               { num: "3+", label: "Happy Clients" },
               { num: "100%", label: "Client Satisfaction" },
-            ].map((s) => (
-              <div key={s.label} className="text-center py-12">
+            ].map((s, index) => (
+              <div key={s.label} className="text-center py-12 gsap-reveal" style={motionDelay(index, 60)}>
                 <div className="text-4xl md:text-5xl font-medium mb-2" style={{ fontFamily: "Author, sans-serif" }}>{s.num}</div>
                 <p className="text-xs opacity-50 leading-tight">{s.label}</p>
               </div>
@@ -110,7 +94,7 @@ export default function AboutPage() {
 
 
         {/* CTA */}
-        <section className="container-wide mt-40 pt-20 pb-16">
+        <section className="container-wide mt-40 pt-20 pb-16" data-animate="fade-up">
           <div className="flex flex-col gap-0">
             <p className="text-[10px] uppercase tracking-[0.3em] opacity-40 mb-8 font-mono">Get In Touch</p>
 
@@ -154,10 +138,10 @@ export default function AboutPage() {
               { title: "Pokar Greens Business Platform", tag: "Web Solutions", image: "/images/pokar.png" },
               { title: "Wealth Genius Institute Portal", tag: "Web Solutions", image: "/images/wealth.png" },
               { title: "Metal Made Global Showcase", tag: "Web Solutions", image: "/images/metal made global.jpeg" },
-            ].map((project) => (
-              <div key={project.title} className="group cursor-pointer gsap-reveal">
+            ].map((project, index) => (
+              <div key={project.title} className="group cursor-pointer gsap-reveal motion-card" style={motionDelay(index, 90)}>
                 <div className="aspect-square overflow-hidden mb-6 relative rounded-3xl border border-current/10">
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={project.image} alt={project.title} className="w-full h-full object-cover motion-card-media" />
                 </div>
                 <p className="text-[10px] uppercase tracking-widest opacity-40 mb-2">{project.tag}</p>
                 <h3 className="text-2xl font-medium tracking-tight leading-none group-hover:translate-x-1 transition-transform duration-300">

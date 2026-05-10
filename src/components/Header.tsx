@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import { motionDelay } from "@/lib/motion";
 
 const navLinks = [
   { number: "01", label: "Home", href: "/" },
@@ -91,7 +92,7 @@ export function Header() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-[99] bg-[var(--bg-color)] flex flex-col">
+        <div className="lg:hidden fixed inset-0 z-[99] bg-[var(--bg-color)] flex flex-col motion-menu">
           <div className="flex justify-end p-6">
             <button
               onClick={() => setMobileMenuOpen(false)}
@@ -102,12 +103,13 @@ export function Header() {
             </button>
           </div>
           <nav className="flex-1 flex flex-col items-center justify-center gap-6 px-8">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className="flex items-center gap-4 text-3xl font-medium uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity"
+                className="flex items-center gap-4 text-3xl font-medium uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity motion-menu-item"
+                style={motionDelay(index, 45, 80)}
               >
                 <span className="text-lg opacity-40">{link.number}</span>
                 {link.label}

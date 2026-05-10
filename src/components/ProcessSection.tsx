@@ -1,5 +1,7 @@
 "use client";
 
+import { motionDelay } from "@/lib/motion";
+
 const steps = [
   {
     num: "01",
@@ -53,9 +55,10 @@ export function ProcessSection() {
               {steps.map((step, index) => (
                 <div 
                   key={step.num} 
-                  className={`group flex flex-col md:flex-row gap-6 md:gap-12 py-10 gsap-fade-up ${
+                  className={`group flex flex-col md:flex-row gap-6 md:gap-12 py-10 gsap-fade-up motion-card ${
                     index === 0 ? "border-t border-current/10" : ""
                   } border-b border-current/10 hover:bg-current/[0.02] transition-colors duration-300`}
+                  style={motionDelay(index, 75)}
                 >
                   <div className="md:w-24 shrink-0">
                     <p className="text-sm font-mono opacity-40 group-hover:opacity-100 transition-opacity">STEP {step.num}</p>

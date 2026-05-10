@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Lenis from "@studio-freight/lenis";
+import { useState } from "react";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { motionDelay } from "@/lib/motion";
 
 const projects = [
   {
@@ -39,19 +39,6 @@ const allTags = ["All", "Web Solutions"];
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState("All");
 
-  useEffect(() => {
-    const lenis = new Lenis({ duration: 1.2, easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
-    function raf(time: number) { lenis.raf(time); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
-    return () => lenis.destroy();
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => { entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("is-visible"); }); }, { threshold: 0.1 });
-    document.querySelectorAll(".gsap-fade-up, .gsap-reveal").forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
   const filtered = activeFilter === "All" ? projects : projects.filter((p) => p.tags.includes(activeFilter));
 
   return (
@@ -62,13 +49,13 @@ export default function ProjectsPage() {
 
         {/* Hero */}
         <section className="container-wide pt-[15vh] mb-24 flex flex-col xl:flex-row justify-between items-start xl:items-end gap-16 border-b border-current/10 pb-20">
-          <div className="flex flex-col shrink-0">
+          <div className="flex flex-col shrink-0" data-animate="fade-up">
             <h2 className="text-6xl sm:text-8xl md:text-[140px] lg:text-[180px] font-medium tracking-tighter leading-[0.8] mb-8 whitespace-nowrap" style={{ fontFamily: "Author, sans-serif" }}>
               Our Work
             </h2>
             <div className="w-32 h-[1px] bg-current opacity-40" />
           </div>
-          <div className="flex flex-col items-start xl:items-end text-left xl:text-right pb-4 w-full">
+          <div className="flex flex-col items-start xl:items-end text-left xl:text-right pb-4 w-full" data-animate="fade-left" style={motionDelay(1, 120)}>
             <p className="text-[10px] font-mono opacity-40 tracking-widest uppercase mb-4">[Nextron Solution]</p>
             <p className="text-xl md:text-2xl lg:text-3xl font-medium leading-[1.4] opacity-50 max-w-2xl text-balance">
               A Curated Selection Of Digital Artifacts, Built With Technical Precision And Design Intentionality.
@@ -77,12 +64,13 @@ export default function ProjectsPage() {
         </section>
 
         {/* Filter Tabs */}
-        <section className="container-wide mb-16">
+        <section className="container-wide mb-16" data-animate="fade-up">
           <div className="flex flex-wrap gap-2">
-            {allTags.map((tag) => (
+            {allTags.map((tag, index) => (
               <button
                 key={tag}
                 onClick={() => setActiveFilter(tag)}
+                style={motionDelay(index, 45)}
                 className={`px-5 py-2 text-[10px] uppercase tracking-widest border transition-all duration-300 ${activeFilter === tag
                   ? "bg-current text-[var(--bg-color)] border-current"
                   : "border-current/10 hover:border-current/30 opacity-50 hover:opacity-100"
@@ -97,10 +85,10 @@ export default function ProjectsPage() {
         {/* Project Grid */}
         <section className="container-wide mb-40">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {filtered.map((project) => (
-              <div key={project.title} className="group cursor-pointer gsap-reveal">
+            {filtered.map((project, index) => (
+              <div key={`${activeFilter}-${project.title}`} className="group cursor-pointer gsap-reveal motion-card" style={motionDelay(index, 90)}>
                 <div className="aspect-square overflow-hidden mb-6 relative rounded-3xl border border-current/10">
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={project.image} alt={project.title} className="w-full h-full object-cover motion-card-media" />
                 </div>
                 <h3 className="text-2xl font-medium tracking-tight leading-none group-hover:translate-x-1 transition-transform duration-300 mb-3">
                   {project.title}
@@ -112,7 +100,7 @@ export default function ProjectsPage() {
         </section>
 
         {/* CTA */}
-        <section className="container-wide mb-40 pt-20 border-t border-current/10">
+        <section className="container-wide mb-40 pt-20 border-t border-current/10" data-animate="fade-up">
           <div className="flex flex-col gap-0">
             <p className="text-[10px] uppercase tracking-[0.3em] opacity-40 mb-8 font-mono">Get In Touch</p>
 

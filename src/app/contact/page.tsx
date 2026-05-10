@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { motionDelay } from "@/lib/motion";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -54,16 +55,16 @@ export default function Contact() {
       <Header />
       <main className="min-h-screen pt-32 pb-20 container-wide">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-medium tracking-tighter leading-[0.9] mb-8" style={{ fontFamily: "Author, sans-serif" }}>
+          <h1 className="text-5xl md:text-7xl font-medium tracking-tighter leading-[0.9] mb-8" style={{ fontFamily: "Author, sans-serif" }} data-animate="fade-up">
             Let's Start a <br /> Project Together
           </h1>
-          <p className="text-lg opacity-70 mb-16 max-w-2xl">
+          <p className="text-lg opacity-70 mb-16 max-w-2xl" data-animate="fade-up" style={motionDelay(1, 90)}>
             Fill out the form below to get in touch. We will get back to you as soon as possible.
           </p>
 
-          <form onSubmit={handleSubmit} className="space-y-8">
+          <form onSubmit={handleSubmit} className="space-y-8" data-animate="fade-up" style={motionDelay(2, 90)}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-2">
+              <div className="space-y-2 gsap-reveal" style={motionDelay(0, 50)}>
                 <label htmlFor="name" className="text-xs uppercase tracking-widest opacity-60">Full Name *</label>
                 <input
                   type="text"
@@ -76,7 +77,7 @@ export default function Contact() {
                   placeholder="John Doe"
                 />
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2 gsap-reveal" style={motionDelay(1, 50)}>
                 <label htmlFor="email" className="text-xs uppercase tracking-widest opacity-60">Email Address *</label>
                 <input
                   type="email"
@@ -89,7 +90,7 @@ export default function Contact() {
                   placeholder="john@example.com"
                 />
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2 gsap-reveal" style={motionDelay(2, 50)}>
                 <label htmlFor="phone" className="text-xs uppercase tracking-widest opacity-60">Phone Number</label>
                 <input
                   type="tel"
@@ -101,7 +102,7 @@ export default function Contact() {
                   placeholder="+1 (555) 000-0000"
                 />
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2 gsap-reveal" style={motionDelay(3, 50)}>
                 <label htmlFor="service" className="text-xs uppercase tracking-widest opacity-60">Service Needed</label>
                 <select
                   id="service"
@@ -121,7 +122,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-2 gsap-reveal" style={motionDelay(4, 50)}>
               <label htmlFor="message" className="text-xs uppercase tracking-widest opacity-60">Project Details *</label>
               <textarea
                 id="message"
@@ -150,6 +151,7 @@ export default function Contact() {
             <button
               type="submit"
               disabled={status === "loading"}
+              style={motionDelay(5, 50)}
               className="bg-black text-white px-10 py-5 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-black/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center gap-3"
             >
               {status === "loading" ? "Sending..." : "Send Message"}
