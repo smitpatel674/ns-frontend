@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { CareersForm } from "@/components/CareersForm";
 
 export default function CareersPage() {
   useEffect(() => {
@@ -77,18 +78,31 @@ export default function CareersPage() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="container-wide mb-40 gsap-reveal">
-          <div className="max-w-4xl">
-            <h2 className="text-4xl sm:text-5xl md:text-7xl font-medium leading-[0.85] tracking-tighter mb-8" style={{ fontFamily: "Author, sans-serif" }}>
-              Become Part Of<span className="block">The Team.</span>
-            </h2>
-            <p className="text-lg opacity-70 mb-8 max-w-xl leading-relaxed">
-              We Are Always Looking For Talented Professionals To Join Our Team. If You Are Ready For A New Challenge, We Want To Hear From You.
-            </p>
-            <Link href="/contact" className="btn-pro px-8 py-4 text-[10px]">
-              Apply Now
-            </Link>
+
+        {/* Career Application Form */}
+        <section id="apply" className="container-wide mb-40 gsap-reveal pt-20 border-t border-current/10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+            <div>
+              <h2 className="text-4xl sm:text-5xl md:text-7xl font-medium leading-[0.85] tracking-tighter mb-8" style={{ fontFamily: "Author, sans-serif" }}>
+                Become Part Of<span className="block">The Team.</span>
+              </h2>
+              <p className="text-lg opacity-70 mb-8 max-w-xl leading-relaxed">
+                We Are Always Looking For Talented Professionals To Join Our Team. If You Are Ready For A New Challenge, Fill Out The Form To Get Started.
+              </p>
+              <div className="space-y-6">
+                <div>
+                  <p className="text-[10px] uppercase tracking-widest opacity-40 mb-2">Email Us At</p>
+                  <p className="text-xl font-medium">careers@nextronsolution.com</p>
+                </div>
+                <div>
+                  <p className="text-[10px] uppercase tracking-widest opacity-40 mb-2">Our Location</p>
+                  <p className="text-xl font-medium">Gujarat, India</p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-current/[0.02] p-8 md:p-12 rounded-2xl border border-current/5">
+              <CareersForm />
+            </div>
           </div>
         </section>
       </main>
