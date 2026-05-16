@@ -137,7 +137,7 @@ export function HeroSection() {
               >
                  <div className="flex flex-col items-center">
                     <span className="font-mono text-[10px] tracking-widest opacity-40">EST.</span>
-                    <span className="font-medium tracking-widest opacity-80">2024</span>
+                    <span className="font-medium tracking-widest opacity-80">2025</span>
                  </div>
               </div>
               
