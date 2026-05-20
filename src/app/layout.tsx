@@ -1,18 +1,10 @@
 import type { Metadata } from "next";
-import { SiteMotion } from "@/components/SiteMotion";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Nextron Solution — Web Development & Digital Marketing",
-  description: "Nextron Solution offers expert web development, digital marketing, SEO, UI/UX design, and AI/ML development services in Gujarat, India. Next Digital Success.",
-  icons: {
-    icon: [
-      { url: "/icon.png", sizes: "32x32" },
-      { url: "/icon.png", sizes: "192x192" },
-      { url: "/icon.png", sizes: "512x512" },
-    ],
-    apple: "/icon.png",
-  },
+  title: "Nextron Solution — Next Digital Success",
+  description: "Nextron Solution offers expert web development, digital marketing, SEO, UI/UX design, and AI/ML development services in Gujarat, India.",
+  icons: { icon: "/icon.png" },
 };
 
 export default function RootLayout({
@@ -21,16 +13,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="en">
       <head>
-        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
-        <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" />
-        <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=author@200,300,400,500&display=swap" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
       </head>
-      <body className="min-h-full flex flex-col bg-[var(--bg-color)] text-[var(--text-color)] font-['General Sans',sans-serif]">
-        <SiteMotion />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

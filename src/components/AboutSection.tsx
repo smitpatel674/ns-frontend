@@ -1,86 +1,59 @@
-"use client";
-
-import { useState, useEffect, useRef } from "react";
-import { motionDelay } from "@/lib/motion";
-
-function AnimatedNumber({ value, suffix }: { value: number; suffix: string }) {
-  const [count, setCount] = useState(0);
-  const nodeRef = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    const node = nodeRef.current;
-    if (!node) return;
-
-    let startTime: number;
-    let animationFrame: number;
-    
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          const duration = 2000;
-          
-          const step = (timestamp: number) => {
-            if (!startTime) startTime = timestamp;
-            const progress = Math.min((timestamp - startTime) / duration, 1);
-            const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-            
-            setCount(Math.ceil(easeProgress * value));
-            
-            if (progress < 1) {
-              animationFrame = requestAnimationFrame(step);
-            }
-          };
-          
-          animationFrame = requestAnimationFrame(step);
-          observer.unobserve(node);
-        }
-      },
-      { threshold: 0.1 }
-    );
-    
-    observer.observe(node);
-    
-    return () => {
-      observer.disconnect();
-      if (animationFrame) cancelAnimationFrame(animationFrame);
-    };
-  }, [value]);
-
-  return <span ref={nodeRef}>{count}{suffix}</span>;
-}
-
-export function AboutSection() {
+﻿export function AboutSection() {
   return (
-    <section className="container-wide py-24 relative z-10 gsap-fade-up">
-      <div className="flex flex-col lg:flex-row gap-16 mb-20 items-start gsap-fade-up">
-        <div className="lg:w-1/3" data-animate="fade-right">
-          <p className="text-xs uppercase tracking-[0.2em] opacity-40 mb-4">Achievements</p>
-          <h2 className="text-5xl md:text-7xl font-medium tracking-tighter leading-none" style={{ fontFamily: "Author, sans-serif" }}>
-            About<span className="block">Company</span>
-          </h2>
-        </div>
-
-        <div className="lg:w-2/3" data-animate="fade-left" style={motionDelay(1, 100)}>
-          <p className="text-lg leading-relaxed opacity-70 mb-8">
-            Nextron Solution is a leading web development and digital marketing company in Gujarat, India. We offer expert web development, digital marketing, SEO optimization, UI/UX design, mobile development, analytics, and AI/ML development services. We empower startups and enterprises to build scalable, high-performance digital products for sustainable growth — Next Digital Success.
-          </p>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-2 md:grid-cols-4 border border-current/10 divide-y md:divide-y-0 md:divide-x divide-current/10 gsap-fade-up">
-        {[
-          { value: 5, suffix: "+", label: "Projects Completed" },
-          { value: 2, suffix: "+", label: "Years Experience" },
-          { value: 3, suffix: "+", label: "Happy Clients" },
-          { value: 100, suffix: "%", label: "Client Satisfaction" },
-        ].map((s, index) => (
-          <div key={s.label} className="text-center py-12 gsap-reveal" style={motionDelay(index, 65)}>
-            <div className="text-4xl md:text-5xl font-medium mb-2" style={{ fontFamily: "Author, sans-serif" }}>
-              <AnimatedNumber value={s.value} suffix={s.suffix} />
+    <section className="section" id="about">
+      <div className="wrap">
+        <div className="about-grid">
+          <div className="about-copy reveal">
+            <span className="label">/ 02 — ABOUT COMPANY</span>
+            <h2>Empowering startups &amp; enterprises to build <em>scalable</em> digital products.</h2>
+            <p>Nextron Solution is a young studio with veteran instincts. We pair <strong>senior engineering</strong> with <strong>editorial design</strong> to build websites, products and growth systems that punch far above their weight.</p>
+            <p>Founded in 2025 in Kadi, Gujarat, we serve founders and teams across India and globally — from local family businesses to venture-backed startups. We&apos;re small on purpose: every project gets principal-level attention.</p>
+            <div className="about-stats">
+              <div className="about-stat">
+                <span className="v"><span className="count" data-target="50">0</span><span className="plus">+</span></span>
+                <span className="l">Projects Completed</span>
+              </div>
+              <div className="about-stat">
+                <span className="v"><span className="count" data-target="1">0</span><span className="plus">+</span></span>
+                <span className="l">Years Experience</span>
+              </div>
+              <div className="about-stat">
+                <span className="v"><span className="count" data-target="30">0</span><span className="plus">+</span></span>
+                <span className="l">Happy Clients</span>
+              </div>
+              <div className="about-stat">
+                <span className="v"><span className="count" data-target="100">0</span><span className="pct">%</span></span>
+                <span className="l">Client Satisfaction</span>
+              </div>
             </div>
-            <p className="text-xs opacity-50 leading-tight">{s.label}</p>
           </div>
-        ))}
+
+          <div className="about-panel reveal delay-1">
+            <span className="est-badge">&#9658; EST. 2025</span>
+            <svg className="circuit" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <pattern id="circ" width="30" height="30" patternUnits="userSpaceOnUse">
+                  <path d="M0 15h10M20 15h10M15 0v10M15 20v10" stroke="rgba(240,237,230,0.12)" strokeWidth="0.7" fill="none"/>
+                  <circle cx="15" cy="15" r="1.2" fill="rgba(240,237,230,0.2)"/>
+                </pattern>
+              </defs>
+              <rect width="400" height="400" fill="url(#circ)"/>
+            </svg>
+            <div className="term" id="terminal">
+              <div className="line"><span className="s">$</span> <span className="k">nextron</span> deploy --target production</div>
+              <div className="line"><span className="s">&#8250;</span> initializing build pipeline...</div>
+              <div className="line"><span className="s">&#8250;</span> <span className="k">typescript</span> &#10003; <span className="k">tests</span> &#10003; <span className="k">lighthouse</span> 100</div>
+              <div className="line"><span className="s">&#8250;</span> shipping to edge network...</div>
+              <div className="line"><span className="s">$</span> deployment <span className="k">successful</span> in 24.3s</div>
+              <div className="line"><span className="s">$</span> <span className="cursor"></span></div>
+            </div>
+            <div className="panel-meta">
+              <div><span>Studio</span><span className="v">Kadi, Gujarat IN</span></div>
+              <div><span>Stack</span><span className="v">Modern, typed, tested</span></div>
+              <div><span>Avail.</span><span className="v">Q3 2026 open</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
