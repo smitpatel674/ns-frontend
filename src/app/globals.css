@@ -91,7 +91,7 @@ img,svg{display:block;max-width:100%}
 .nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:#1A1A1A;transform:scaleX(0);transform-origin:left center;transition:transform .35s cubic-bezier(.65,0,.35,1)}
 .nav-links a:hover{color:#1A1A1A}
 .nav-links a:hover::after{transform:scaleX(1)}
-.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;background:#1A1A1A;color:#F0EDE6;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.04em;position:relative;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease;text-transform:uppercase}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:#1A1A1A;color:#F0EDE6;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.04em;position:relative;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease;text-transform:uppercase}
 .nav-cta:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(26,26,26,.22)}
 .nav-cta .arr{transition:transform .35s ease}
 .nav-cta:hover .arr{transform:translateX(4px)}
@@ -164,7 +164,7 @@ img,svg{display:block;max-width:100%}
 .hero-sub strong{color:#1A1A1A;font-weight:500}
 .hero-ctas{display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
 
-.btn{position:relative;display:inline-flex;align-items:center;gap:12px;padding:18px 28px;border-radius:999px;font-weight:500;font-size:14px;letter-spacing:.02em;overflow:hidden;isolation:isolate;transition:color .3s ease,transform .25s ease,box-shadow .3s ease;font-family:var(--sans)}
+.btn{position:relative;display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;font-weight:500;font-size:14px;letter-spacing:.02em;overflow:hidden;isolation:isolate;transition:color .3s ease,transform .25s ease,box-shadow .3s ease;font-family:var(--sans)}
 .btn .arr{transition:transform .35s ease}
 .btn:hover .arr{transform:translateX(5px)}
 .btn-lime{background:#1A1A1A;color:#F0EDE6}
@@ -490,7 +490,7 @@ img,svg{display:block;max-width:100%}
 @media (max-width:600px){.sticky-cta{bottom:16px;right:16px;font-size:11px;padding:12px 18px}}
 
 /* ====== HERO 3D CARD STACK ====== */
-.hero-3d{position:absolute;top:38%;right:6%;width:min(440px,38vw);aspect-ratio:1/1;z-index:2;pointer-events:none;transform:translateY(-50%)}
+.hero-3d{position:absolute;top:50%;right:6%;width:min(470px,39vw);aspect-ratio:1/1;z-index:2;pointer-events:auto;transform:translateY(-50%)}
 .h3d-scene{width:100%;height:100%;perspective:1400px;perspective-origin:50% 40%}
 .h3d-stack{position:relative;width:100%;height:100%;transform-style:preserve-3d;transform:rotateX(-8deg) rotateY(-18deg);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .fcard{position:absolute;left:50%;top:50%;width:62%;aspect-ratio:5/7;border-radius:14px;background:#FFFFFF;border:1px solid #C8C4BB;box-shadow:0 30px 80px -20px rgba(26,26,26,.25),0 6px 20px -8px rgba(26,26,26,.10);transform-style:preserve-3d;transform-origin:center;overflow:hidden;backface-visibility:hidden}
@@ -532,8 +532,25 @@ img,svg{display:block;max-width:100%}
 .fcard-spark.s2{top:74%;left:88%;transform:translateZ(80px);background:#BBA365;animation:sparkF 4.5s ease-in-out infinite .6s}
 .fcard-spark.s3{top:18%;left:90%;transform:translateZ(160px);width:4px;height:4px;animation:sparkF 5.2s ease-in-out infinite 1.4s}
 @keyframes sparkF{0%,100%{opacity:.3;transform:translateZ(140px) translateY(0)}50%{opacity:1;transform:translateZ(160px) translateY(-8px)}}
-@media (prefers-reduced-motion:reduce){.h3d-stack,.fcard-orbit,.fcard-spark{animation:none}}
+@media (prefers-reduced-motion:reduce){.h3d-stack,.fcard-orbit,.fcard-spark{animation:none;transition:none!important}}
 @media (max-width:1100px){.hero-3d{display:none}}
+
+/* ====== CARDSWAP ====== */
+/* cs-root fills the 3D scene so cards anchor at 50%/50% of the scene */
+.cs-root{position:absolute;inset:0;transform-style:preserve-3d}
+/* cs-card: visual styles only — position/size injected by CardSwap via inline style */
+.cs-card{border-radius:14px;background:#FFFFFF;border:1px solid #C8C4BB;box-shadow:0 30px 80px -20px rgba(26,26,26,.25),0 6px 20px -8px rgba(26,26,26,.10);overflow:hidden;backface-visibility:hidden;transform-style:preserve-3d;cursor:pointer}
+/* Cards anchor at center of scene — translate(-50%,-50%) in the JS transform needs these */
+.cs-root .cs-card{position:absolute;left:50%;top:50%;width:62%;aspect-ratio:5/7}
+.cs-card.dark{background:#1A1A1A;border-color:#1A1A1A;color:#F0EDE6}
+.cs-card.dark .fcard-inner,.cs-card.dark .fcard-n,.cs-card.dark .fcard-title,.cs-card.dark .fcard-arr{color:#F0EDE6}
+.cs-card.dark .fcard-dot{background:#F0EDE6}
+.cs-card.dark .fcard-tag{color:rgba(240,237,230,.55);border-color:rgba(240,237,230,.25)}
+.cs-card.dark .fcard-meta{color:rgba(240,237,230,.5);border-top-color:rgba(240,237,230,.15)}
+.cs-card.dark .fcard-edge{background:linear-gradient(135deg,rgba(240,237,230,.08),transparent 40%)}
+.cs-card.dark .fcard-grid span{background:rgba(240,237,230,.06);border-color:rgba(240,237,230,.10)}
+.cs-card.dark .fcard-grid span:nth-child(3){background:#F0EDE6;border-color:#F0EDE6}
+.cs-card.dark .fcard-grid span:nth-child(6){background:rgba(240,237,230,.35);border-color:rgba(240,237,230,.4)}
 
 /* ====== UTILITIES ====== */
 @layer utilities {

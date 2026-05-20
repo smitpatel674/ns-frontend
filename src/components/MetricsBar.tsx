@@ -2,10 +2,10 @@
 import { useEffect, useRef } from "react";
 
 const METRICS = [
-  { value: 50, suffix: "+", label: "Projects Completed", arrow: "↑ Growing" },
-  { value: 100, suffix: "%", label: "Client Satisfaction", arrow: "↑ Consistent" },
-  { value: 12, suffix: "+", label: "Industries Served", arrow: "↑ Diverse" },
-  { value: 3, suffix: "×", label: "Average ROI", arrow: "↑ Measured" },
+  { value: 50, suffix: "+", label: "Projects Delivered", tag: "DELIVERED" },
+  { value: 100, suffix: "%", label: "Client Satisfaction", tag: "TRUSTED" },
+  { value: 12, suffix: "+", label: "Tech Stacks Mastered", tag: "MASTERED" },
+  { value: 3, suffix: "×", label: "Average ROI for Clients", tag: "GROWTH" },
 ];
 
 function animateCount(el: HTMLElement) {
@@ -40,11 +40,11 @@ export function MetricsBar() {
   }, []);
 
   return (
-    <div className="metrics" ref={ref}>
+    <section className="metrics" aria-label="Key metrics" ref={ref}>
       <div className="metrics-grid">
-        {METRICS.map((m) => (
-          <div className="metric" key={m.label}>
-            <span className="arr-up">↑ {m.label.split(" ")[0]}</span>
+        {METRICS.map((m, i) => (
+          <div className={`metric reveal${i > 0 ? ` delay-${i}` : ""}`} key={m.label}>
+            <span className="arr-up">↗ {m.tag}</span>
             <span className="val">
               <span className="count" data-target={m.value}>0</span>
               <span className={m.suffix === "%" ? "pct" : m.suffix === "×" ? "x" : "plus"}>{m.suffix}</span>
@@ -53,6 +53,6 @@ export function MetricsBar() {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,6 +1,7 @@
 ﻿"use client";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Link from "next/link";
+import CardSwap, { Card } from "./CardSwap";
 
 function animateCount(el: HTMLElement) {
   if (!el || (el as any).dataset.counted) return;
@@ -100,10 +101,6 @@ export function HeroSection() {
         <div className="hero-eyebrow" id="heroEyebrow">
           <span className="tri">&#9658;</span> NEXT DIGITAL SUCCESS &mdash; EST. 2025
         </div>
-        <div className="hero-counter">
-          <span className="num"><span className="count" data-target="50">0</span>+</span>
-          <span className="lbl">Projects Shipped</span>
-        </div>
       </div>
 
       <h1 className="hero-headline" aria-label="We Build Digital Futures.">
@@ -115,57 +112,59 @@ export function HeroSection() {
       <div className="hero-3d" id="hero3d" aria-hidden="true">
         <div className="h3d-scene">
           <div className="h3d-stack" id="h3dStack" ref={stackRef}>
-            <div className="fcard fcard-3">
-              <div className="fcard-edge" />
-              <div className="fcard-inner">
-                <div className="fcard-top">
-                  <span className="fcard-n">03</span>
-                  <span className="fcard-tag">PHASE</span>
+            <CardSwap cardDistance={42} verticalDistance={34} delay={5000} pauseOnHover={false}>
+              <Card>
+                <div className="fcard-edge" />
+                <div className="fcard-inner">
+                  <div className="fcard-top">
+                    <span className="fcard-n">01</span>
+                    <span className="fcard-tag">PHASE</span>
+                  </div>
+                  <div className="fcard-title">Design<span className="fcard-dot" /></div>
+                  <div className="fcard-meta">
+                    <span>RESEARCH · SKETCH · SYSTEM</span>
+                    <span className="fcard-arr">↗</span>
+                  </div>
                 </div>
-                <div className="fcard-title">Deploy<span className="fcard-dot" /></div>
-                <div className="fcard-meta">
-                  <span>SHIP · MONITOR · GROW</span>
-                  <span className="fcard-arr">↗</span>
+              </Card>
+              <Card>
+                <div className="fcard-edge" />
+                <div className="fcard-inner">
+                  <div className="fcard-top">
+                    <span className="fcard-n">02</span>
+                    <span className="fcard-tag">PHASE</span>
+                  </div>
+                  <div className="fcard-title">Develop<span className="fcard-dot" /></div>
+                  <div className="fcard-meta">
+                    <span>BUILD · TEST · REFINE</span>
+                    <span className="fcard-arr">↗</span>
+                  </div>
+                  <div className="fcard-bars">
+                    <i style={{"--w": "80%"} as React.CSSProperties} />
+                    <i style={{"--w": "62%"} as React.CSSProperties} />
+                    <i style={{"--w": "94%"} as React.CSSProperties} />
+                    <i style={{"--w": "48%"} as React.CSSProperties} />
+                  </div>
                 </div>
-                <div className="fcard-grid">
-                  {Array.from({ length: 8 }).map((_, i) => <span key={i} />)}
+              </Card>
+              <Card className="dark">
+                <div className="fcard-edge" />
+                <div className="fcard-inner">
+                  <div className="fcard-top">
+                    <span className="fcard-n">03</span>
+                    <span className="fcard-tag">PHASE</span>
+                  </div>
+                  <div className="fcard-title">Deploy<span className="fcard-dot" /></div>
+                  <div className="fcard-meta">
+                    <span>SHIP · MONITOR · GROW</span>
+                    <span className="fcard-arr">↗</span>
+                  </div>
+                  <div className="fcard-grid">
+                    {Array.from({ length: 8 }).map((_, i) => <span key={i} />)}
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="fcard fcard-2">
-              <div className="fcard-edge" />
-              <div className="fcard-inner">
-                <div className="fcard-top">
-                  <span className="fcard-n">02</span>
-                  <span className="fcard-tag">PHASE</span>
-                </div>
-                <div className="fcard-title">Develop<span className="fcard-dot" /></div>
-                <div className="fcard-meta">
-                  <span>BUILD · TEST · REFINE</span>
-                  <span className="fcard-arr">↗</span>
-                </div>
-                <div className="fcard-bars">
-                  <i style={{"--w": "80%"} as React.CSSProperties} />
-                  <i style={{"--w": "62%"} as React.CSSProperties} />
-                  <i style={{"--w": "94%"} as React.CSSProperties} />
-                  <i style={{"--w": "48%"} as React.CSSProperties} />
-                </div>
-              </div>
-            </div>
-            <div className="fcard fcard-1">
-              <div className="fcard-edge" />
-              <div className="fcard-inner">
-                <div className="fcard-top">
-                  <span className="fcard-n">01</span>
-                  <span className="fcard-tag">PHASE</span>
-                </div>
-                <div className="fcard-title">Design<span className="fcard-dot" /></div>
-                <div className="fcard-meta">
-                  <span>RESEARCH · SKETCH · SYSTEM</span>
-                  <span className="fcard-arr">↗</span>
-                </div>
-              </div>
-            </div>
+              </Card>
+            </CardSwap>
             <div className="fcard-orbit" />
             <div className="fcard-spark s1" />
             <div className="fcard-spark s2" />
@@ -176,21 +175,21 @@ export function HeroSection() {
 
       <div className="hero-bottom">
         <p className="hero-sub reveal" id="heroSub">
-          We build <strong>high-performance websites</strong>, data-driven{" "}
-          <strong>digital marketing</strong> &amp; <strong>AI solutions</strong> to
-          accelerate your business growth.
+          From <strong>high-performance web applications</strong> to data-driven
+          marketing — Nextron Solution <strong>engineers growth</strong> for
+          startups and enterprises across Gujarat and beyond.
         </p>
-        <div className="hero-ctas reveal" id="heroCtas">
+        <div className="hero-ctas reveal delay-1" id="heroCtas">
           <Link href="/#contact" className="btn btn-lime" data-cursor="">
             Start a Project <span className="arr">→</span>
           </Link>
-          <Link href="/#services" className="btn btn-ghost" data-cursor="">
-            Explore Services
+          <Link href="/#works" className="btn btn-ghost" data-cursor="">
+            View Our Work <span className="arr">→</span>
           </Link>
         </div>
       </div>
 
-      <div className="hero-badge">
+      <div className="hero-badge" aria-hidden="true" hidden style={{ display: "none" }}>
         <div className="orbit">
           <svg viewBox="0 0 200 200" width="160" height="160">
             <defs>
@@ -208,8 +207,8 @@ export function HeroSection() {
       </div>
 
       <div className="scroll-hint" aria-hidden="true">
+        SCROLL
         <span className="ln" />
-        Scroll
       </div>
     </section>
   );
