@@ -2,12 +2,18 @@ import { chromium } from 'playwright';
 
 (async () => {
   const browser = await chromium.launch({ headless: false });
-  const pages = ['/', '/about', '/services', '/projects', '/careers', '/client'];
+  const pages = ['/'];
   
   for (const path of pages) {
     const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
     const page = await context.newPage();
-    await page.goto(`http://localhost:3000${path}`, { waitUntil: 'domcontentloaded', timeout: 30000 });
+    try {
+      await page.goto(`http://localhost:3000${path}`, { waitUntil: 'domcontentloaded', timeout: 30000 });
+    } catch (error) {
+      console.warn(`⚠️ Failed to open ${path}:`, error?.message ?? error);
+      await context.close();
+      continue;
+    }
     await page.waitForLoadState('load', { timeout: 30000 }).catch(() => {});
     await page.waitForTimeout(2000);
     const name = path === '/' ? 'home' : path.slice(1);

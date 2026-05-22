@@ -1,4 +1,52 @@
-﻿export function AboutSection() {
+﻿"use client";
+
+import { useEffect, useState } from "react";
+
+export function AboutSection() {
+  const terminalLines = [
+    "$ cat mission.txt",
+    "> we build for founders who move fast",
+    "> we design for users who think less",
+    "> we code for products that scale hard",
+    "> small team. zero fluff. all output.",
+    "$ —nextron solution",
+  ];
+
+  const [displayedLines, setDisplayedLines] = useState<string[]>(terminalLines.map(() => ""));
+  const [activeLine, setActiveLine] = useState(0);
+
+  useEffect(() => {
+    const timeouts: ReturnType<typeof setTimeout>[] = [];
+    let lineIndex = 0;
+    let charIndex = 0;
+
+    const typeNext = () => {
+      if (lineIndex >= terminalLines.length) return;
+      const targetLine = terminalLines[lineIndex];
+
+      if (charIndex < targetLine.length) {
+        charIndex += 1;
+        setDisplayedLines((current) => {
+          const next = [...current];
+          next[lineIndex] = targetLine.slice(0, charIndex);
+          return next;
+        });
+        timeouts.push(setTimeout(typeNext, 40));
+      } else {
+        lineIndex += 1;
+        charIndex = 0;
+        setActiveLine(lineIndex);
+        if (lineIndex < terminalLines.length) {
+          timeouts.push(setTimeout(typeNext, 250));
+        }
+      }
+    };
+
+    setActiveLine(0);
+    typeNext();
+    return () => timeouts.forEach(clearTimeout);
+  }, []);
+
   return (
     <section className="section" id="about">
       <div className="wrap">
@@ -40,12 +88,18 @@
               <rect width="400" height="400" fill="url(#circ)"/>
             </svg>
             <div className="term" id="terminal">
-              <div className="line"><span className="s">$</span> <span className="k">nextron</span> deploy --target production</div>
-              <div className="line"><span className="s">&#8250;</span> initializing build pipeline...</div>
-              <div className="line"><span className="s">&#8250;</span> <span className="k">typescript</span> &#10003; <span className="k">tests</span> &#10003; <span className="k">lighthouse</span> 100</div>
-              <div className="line"><span className="s">&#8250;</span> shipping to edge network...</div>
-              <div className="line"><span className="s">$</span> deployment <span className="k">successful</span> in 24.3s</div>
-              <div className="line"><span className="s">$</span> <span className="cursor"></span></div>
+              {displayedLines.map((line, index) => {
+                const prefix = line.charAt(0);
+                const text = line.slice(1);
+                return (
+                  <div key={index} className="line">
+                    <span className="s">{prefix}</span>
+                    {text && " "}
+                    <span>{text}</span>
+                    {activeLine === index && <span className="cursor"></span>}
+                  </div>
+                );
+              })}
             </div>
             <div className="panel-meta">
               <div><span>Studio</span><span className="v">Kadi, Gujarat IN</span></div>
