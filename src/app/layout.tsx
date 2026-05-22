@@ -5,6 +5,17 @@ export const metadata: Metadata = {
   title: "Nextron Solution — Next Digital Success",
   description: "Nextron Solution offers expert web development, digital marketing, SEO, UI/UX design, and AI/ML development services in Gujarat, India.",
   icons: { icon: "/icon.png" },
+  title: "Nextron Solution — Web Development & Digital Marketing",
+  description: "Nextron Solution offers expert web development, digital marketing, SEO, UI/UX design, and AI/ML development services in Gujarat, India. Next Digital Success.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico?v=1", sizes: "any" },
+      { url: "/icon.png?v=1", sizes: "32x32" },
+      { url: "/icon.png?v=1", sizes: "192x192" },
+      { url: "/icon.png?v=1", sizes: "512x512" },
+    ],
+    apple: "/icon.png?v=1",
+  },
 };
 
 export default function RootLayout({

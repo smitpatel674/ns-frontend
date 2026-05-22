@@ -1,5 +1,113 @@
-import { redirect } from "next/navigation"
+"use client";
+
+import { useEffect } from "react";
+import Lenis from "@studio-freight/lenis";
+import Link from "next/link";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { ScrollToTop } from "@/components/ScrollToTop";
+import { CareersForm } from "@/components/CareersForm";
 
 export default function CareersPage() {
-    redirect("/");
+  useEffect(() => {
+    const lenis = new Lenis({ duration: 1.2, easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
+    function raf(time: number) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    return () => lenis.destroy();
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => { entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("is-visible"); }); }, { threshold: 0.1 });
+    document.querySelectorAll(".gsap-fade-up, .gsap-reveal").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <>
+      <Header />
+      <main className="min-h-screen pt-32 pb-20 overflow-x-hidden transition-all duration-500">
+        <h1 className="sr-only">Careers at Nextron Solution - Join Our Team | Jobs in Gujarat</h1>
+
+        {/* Hero */}
+        <section className="container-wide pt-[15vh] mb-24 flex flex-col xl:flex-row justify-between items-start xl:items-end gap-16 border-b border-current/10 pb-20">
+          <div className="w-full md:w-1/2 flex flex-col">
+            <h2 className="text-6xl sm:text-8xl md:text-[140px] lg:text-[180px] font-medium tracking-tighter leading-[0.8] mb-8 whitespace-nowrap" style={{ fontFamily: "Author, sans-serif" }}>
+              Careers
+            </h2>
+            <div className="w-32 h-[1px] bg-current opacity-40" />
+          </div>
+          <div className="flex flex-col items-start xl:items-end text-left xl:text-right pb-4 w-full">
+            <p className="text-[10px] font-mono opacity-40 tracking-widest uppercase mb-4">[Nextron Solution]</p>
+            <p className="text-xl md:text-2xl lg:text-3xl font-medium leading-[1.4] opacity-50 max-w-2xl text-balance">
+              We Are Building The Future Of Digital Infrastructure. Join Us In Our Mission To Create Exceptional Technology.
+            </p>
+          </div>
+        </section>
+
+        {/* Values */}
+        <section className="container-wide mb-40">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {[
+              { letter: "E", title: "Excellence", desc: "We Maintain The Highest Standards Of Engineering And Design In Every Project We Undertake." },
+              { letter: "X", title: "Innovation", desc: "Our Team Constantly Explores New Technologies To Provide Cutting-Edge Solutions For Our Clients." },
+              { letter: "I", title: "Integrity", desc: "We Believe In Transparent Communication And Honest Partnerships To Drive Successful Outcomes." },
+            ].map((v) => (
+              <div key={v.letter} className="border-t border-current/10 pt-8 gsap-reveal">
+                <div className="text-4xl font-light opacity-20 mb-4" style={{ fontFamily: "Author, sans-serif" }}>{v.letter}</div>
+                <h3 className="text-xl font-medium mb-3">{v.title}</h3>
+                <p className="text-sm opacity-60 leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Open Positions */}
+        <section className="container-wide mb-40 pt-20 border-t border-current/10 gsap-reveal">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 mb-16">
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] opacity-40 mb-4">Open Positions</p>
+              <h2 className="text-5xl md:text-7xl font-medium tracking-tighter leading-[0.9]" style={{ fontFamily: "Author, sans-serif" }}>
+                0<span className="block">Roles Available</span>
+              </h2>
+            </div>
+            <div className="max-w-md">
+              <p className="text-lg opacity-70 leading-relaxed">
+                No Positions Currently Available.
+              </p>
+            </div>
+          </div>
+        </section>
+
+
+        {/* Career Application Form */}
+        <section id="apply" className="container-wide mb-40 gsap-reveal pt-20 border-t border-current/10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+            <div>
+              <h2 className="text-4xl sm:text-5xl md:text-7xl font-medium leading-[0.85] tracking-tighter mb-8" style={{ fontFamily: "Author, sans-serif" }}>
+                Become Part Of<span className="block">The Team.</span>
+              </h2>
+              <p className="text-lg opacity-70 mb-8 max-w-xl leading-relaxed">
+                We Are Always Looking For Talented Professionals To Join Our Team. If You Are Ready For A New Challenge, Fill Out The Form To Get Started.
+              </p>
+              <div className="space-y-6">
+                <div>
+                  <p className="text-[10px] uppercase tracking-widest opacity-40 mb-2">Email Us At</p>
+                  <p className="text-xl font-medium">careers@nextronsolution.com</p>
+                </div>
+                <div>
+                  <p className="text-[10px] uppercase tracking-widest opacity-40 mb-2">Our Location</p>
+                  <p className="text-xl font-medium">Gujarat, India</p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-current/[0.02] p-8 md:p-12 rounded-2xl border border-current/5">
+              <CareersForm />
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+      <ScrollToTop />
+    </>
+  );
 }
