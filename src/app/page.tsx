@@ -1,71 +1,65 @@
-"use client";
-
-import { useEffect } from "react";
-import Lenis from "@studio-freight/lenis";
+import { Loader } from "@/components/Loader";
+import { CustomCursor } from "@/components/CustomCursor";
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
+import { MarqueeTrustBar } from "@/components/MarqueeTrustBar";
+import { MetricsBar } from "@/components/MetricsBar";
+import { PillarsStrip } from "@/components/PillarsStrip";
 import { AboutSection } from "@/components/AboutSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { WorksSection } from "@/components/WorksSection";
+import { SectionDivider } from "@/components/SectionDivider";
+import { SpotlightSection } from "@/components/SpotlightSection";
 import { ProcessSection } from "@/components/ProcessSection";
-import { CTASection } from "@/components/CTASection";
+import { WhyUsSection } from "@/components/WhyUsSection";
+import { TeamSection } from "@/components/TeamSection";
+import { ClientMarquee } from "@/components/ClientMarquee";
+import { IndustriesSection } from "@/components/IndustriesSection";
+import { TechStackSection } from "@/components/TechStackSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { AvailabilityBanner } from "@/components/AvailabilityBanner";
+import { ContactSection } from "@/components/ContactSection";
+import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
-import { ScrollToTop } from "@/components/ScrollToTop";
+import { StickyCTA } from "@/components/StickyCTA";
+import { RevealObserver } from "@/components/RevealObserver";
+import { ParticleCanvas } from "@/components/ParticleCanvas";
 
 export default function Home() {
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
-    );
-
-    document.querySelectorAll(".gsap-fade-up").forEach((el) => {
-      observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <>
+      <Loader />
+      <CustomCursor />
+      <div className="grain" aria-hidden="true" />
+      <canvas id="particles" className="particles" aria-hidden="true" />
       <Header />
-      <main className="min-h-screen selection:bg-[var(--selection-bg)] selection:text-[var(--selection-text)] transition-all duration-500">
-        <h1 className="sr-only">Web Development & Digital Marketing | Nextron Solution</h1>
+      <main>
+        <h1 className="sr-only">Web Development &amp; Digital Marketing | Nextron Solution</h1>
         <HeroSection />
+        <MarqueeTrustBar />
+        <MetricsBar />
+        <PillarsStrip />
         <AboutSection />
         <ServicesSection />
         <WorksSection />
+        <SectionDivider />
+        <SpotlightSection />
         <ProcessSection />
-        <CTASection />
+        <WhyUsSection />
+        <TeamSection />
+        <ClientMarquee />
+        <IndustriesSection />
+        <TechStackSection />
         <TestimonialsSection />
+        <AvailabilityBanner />
+        <ContactSection />
+        <SectionDivider />
+        <CTASection />
       </main>
       <Footer />
-      <ScrollToTop />
+      <StickyCTA />
+      <RevealObserver />
+      <ParticleCanvas />
     </>
   );
 }

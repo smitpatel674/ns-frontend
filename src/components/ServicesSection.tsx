@@ -1,52 +1,44 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
-const services = [
-  { number: "01", title: "Web Development", desc: "Modern, responsive websites and web applications built with cutting-edge frameworks for optimal performance." },
-  { number: "02", title: "Digital Marketing", desc: "Data-driven digital marketing strategies to boost brand visibility, traffic, and conversions." },
-  { number: "03", title: "SEO Optimization", desc: "Expert SEO techniques to improve search rankings and drive organic growth for your business." },
-  { number: "04", title: "Mobile Development", desc: "Cross-platform mobile applications with seamless user experience and native performance." },
-  { number: "05", title: "UI/UX Design", desc: "Beautiful, intuitive interface designs that capture your brand identity and convert users effectively." },
-  { number: "06", title: "Analytics & Insights", desc: "Comprehensive analytics and data-driven insights to measure performance and optimize business outcomes." },
-  { number: "07", title: "AI/ML Development", desc: "Intelligent AI and machine learning solutions that automate processes and drive smarter business decisions." },
-  { number: "08", title: "E-Commerce", desc: "Scalable online stores with secure payment gateways and comprehensive product management systems." },
-  { number: "09", title: "WordPress", desc: "Custom WordPress themes, plugins, and highly manageable content systems tailored to your business needs." },
+const SERVICES = [
+  { num: "01", title: "Web Development", desc: "Modern responsive websites and web apps built with cutting-edge frameworks for optimal performance." },
+  { num: "02", title: "Digital Marketing", desc: "Data-driven strategies to boost brand visibility, traffic and conversions across every channel." },
+  { num: "03", title: "SEO Optimization", desc: "Expert SEO to improve search rankings and drive organic growth that compounds month over month." },
+  { num: "04", title: "Mobile Development", desc: "Cross-platform mobile apps with seamless UX and native-grade performance on iOS and Android." },
+  { num: "05", title: "UI / UX Design", desc: "Beautiful intuitive interfaces that capture brand identity and convert users into customers." },
+  { num: "06", title: "Analytics & Insights", desc: "Comprehensive data-driven analytics to measure performance and optimise business outcomes." },
+  { num: "07", title: "AI / ML Development", desc: "Intelligent ML solutions that automate processes and drive smarter decisions at scale." },
+  { num: "08", title: "E-Commerce", desc: "Scalable online stores with secure payment gateways and rich product management workflows." },
+  { num: "09", title: "WordPress", desc: "Custom themes, plugins and content systems tailored to your business and editorial team." },
 ];
+
+const ArrowSvg = () => (
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" strokeWidth="1.6">
+    <path d="M3 4L7 7L3 10M7 4L11 7L7 10"/>
+  </svg>
+);
 
 export function ServicesSection() {
   return (
-    <section className="container-wide py-32 relative z-10 gsap-fade-up">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
-        <div>
-          <p className="text-xs uppercase tracking-[0.2em] opacity-40 mb-4">Our Expertise</p>
-          <h2 className="text-5xl md:text-7xl font-medium tracking-tighter leading-[0.9]" style={{ fontFamily: "Author, sans-serif" }}>
-            Our Services
-          </h2>
+    <section className="section" id="services">
+      <div className="wrap">
+        <div className="section-head-row reveal x-in">
+          <div>
+            <span className="label">/ 03 — OUR SERVICES</span>
+            <h2 className="section-title">What we do,<br /><em>end to end.</em></h2>
+          </div>
+          <div className="right-meta">09 Total<br />Capabilities</div>
         </div>
-
-        <div className="max-w-md">
-          <p className="text-lg leading-relaxed opacity-70 mb-4">
-            We deliver comprehensive digital solutions to help businesses grow and succeed in the digital landscape.
-          </p>
-          <Link href="/services" className="inline-flex items-center text-[10px] uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity border-b border-current/20 pb-1">
-            Explore All Services
-          </Link>
+        <div className="services-list">
+          {SERVICES.map((s) => (
+            <Link className="svc-row reveal" key={s.num} href="/#contact" data-cursor="">
+              <div className="svc-num">{s.num}</div>
+              <h3 className="svc-title">{s.title}</h3>
+              <div className="svc-desc">{s.desc}</div>
+              <div className="svc-arrow"><ArrowSvg /></div>
+            </Link>
+          ))}
         </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
-        {services.map((service) => (
-          <Link
-            key={service.number}
-            href="/services"
-            className="group block py-6 border-t border-current/10"
-          >
-            <span className="text-xs opacity-40 font-mono">{service.number}</span>
-            <h3 className="text-xl font-medium mb-2 tracking-tight group-hover:translate-x-2 transition-transform duration-300">
-              {service.title}
-            </h3>
-            <p className="text-sm opacity-50 leading-relaxed">{service.desc}</p>
-          </Link>
-        ))}
       </div>
     </section>
   );
