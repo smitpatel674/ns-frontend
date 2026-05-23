@@ -11,7 +11,7 @@
 }
 
 /* =============================================
-   DESIGN SYSTEM — Nextron Solution
+   DESIGN SYSTEM - Nextron Solution
    Warm Cream + Rich Black palette
    ============================================= */
 
@@ -369,7 +369,7 @@ img,svg{display:block;max-width:100%}
 /* ====== CLIENT MARQUEE ====== */
 .client-marquee{padding:60px 0;border-top:1px solid #C8C4BB;border-bottom:1px solid #C8C4BB;background:#E8E4DC;overflow:hidden;position:relative;z-index:2}
 .client-marquee .cm-label{text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:#5A5A4E;text-transform:uppercase;margin-bottom:30px}
-.client-marquee .cm-row{display:flex;gap:20px;white-space:nowrap;will-change:transform}
+.client-marquee .cm-row{display:flex;width:max-content;gap:20px;white-space:nowrap;will-change:transform}
 .client-marquee .cm-row.a{animation:marq 32s linear infinite}
 .client-marquee .cm-row.b{animation:marqR 38s linear infinite;margin-top:14px}
 .client-badge{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;background:#FFFFFF;border:1px solid #C8C4BB;border-radius:999px;font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:#1A1A1A;transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}
@@ -532,9 +532,9 @@ img,svg{display:block;max-width:100%}
 /* ====== CARDSWAP ====== */
 /* cs-root fills the 3D scene so cards anchor at 50%/50% of the scene */
 .cs-root{position:absolute;inset:0;transform-style:preserve-3d}
-/* cs-card: visual styles only — position/size injected by CardSwap via inline style */
+/* cs-card: visual styles only - position/size injected by CardSwap via inline style */
 .cs-card{border-radius:14px;background:#FFFFFF;border:1px solid #C8C4BB;box-shadow:0 30px 80px -20px rgba(26,26,26,.25),0 6px 20px -8px rgba(26,26,26,.10);overflow:hidden;backface-visibility:hidden;transform-style:preserve-3d;cursor:pointer}
-/* Cards anchor at center of scene — translate(-50%,-50%) in the JS transform needs these */
+/* Cards anchor at center of scene - translate(-50%,-50%) in the JS transform needs these */
 .cs-root .cs-card{position:absolute;left:50%;top:50%;width:62%;aspect-ratio:5/7}
 .cs-card.dark{background:#1A1A1A;border-color:#1A1A1A;color:#F0EDE6}
 .cs-card.dark .fcard-inner,.cs-card.dark .fcard-n,.cs-card.dark .fcard-title,.cs-card.dark .fcard-arr{color:#F0EDE6}

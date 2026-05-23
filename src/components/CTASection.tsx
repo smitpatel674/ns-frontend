@@ -6,7 +6,7 @@ export function CTASection() {
         <h2>
           Have a project<br />to <em>collaborate</em> on?
         </h2>
-        <p>Drop us a message or call — we build for startups and enterprises across Gujarat and worldwide.</p>
+        <p>Drop us a message or call - we build for startups and enterprises across Gujarat and worldwide.</p>
         <div className="ctas">
           <a className="btn btn-lime" href="mailto:nextronsolution@gmail.com" data-cursor="">
             Get a Quote <span className="arr">→</span>

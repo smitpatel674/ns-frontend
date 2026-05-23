@@ -1,8 +1,8 @@
-﻿export function WhyUsSection() {
+export function WhyUsSection() {
   const cards = [
     {
       title: "Speed Without Compromise",
-      desc: "We move fast and ship clean. Weekly demos, rapid iterations and on-time delivery — always.",
+      desc: "We move fast and ship clean. Weekly demos, rapid iterations and on-time delivery - always.",
       icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg>`,
     },
     {
@@ -12,7 +12,7 @@
     },
     {
       title: "Partnership, Not Projects",
-      desc: "Named lead on every account. We stay invested long after launch day — your growth is our growth.",
+      desc: "Named lead on every account. We stay invested long after launch day - your growth is our growth.",
       icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3 11l6-3 4 4 8-4"/><path d="M3 18h18"/></svg>`,
     },
   ];
@@ -21,7 +21,7 @@
       <div className="wrap">
         <div className="section-head-row reveal x-in">
           <div>
-            <span className="label">/ 06 — WHY NEXTRON</span>
+            <span className="label">/ 06 - WHY NEXTRON</span>
             <h2 className="section-title">Three reasons<br />to <em>pick up the phone.</em></h2>
           </div>
         </div>

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { useEffect, useRef } from "react";
 
 const TECH: Record<string, { name: string; color: string; svg: string }> = {
@@ -52,10 +52,10 @@ export function TechStackSection() {
       <div className="wrap">
         <div className="section-head-row reveal x-in">
           <div>
-            <span className="label">/ 09 — TECHNOLOGIES WE USE</span>
+            <span className="label">/ 09 - TECHNOLOGIES WE USE</span>
             <h2 className="section-title">What&apos;s under<br /><em>the hood.</em></h2>
           </div>
-          <p className="kicker" style={{ maxWidth: 340 }}>Boring &amp; proven — and the occasional new tool we genuinely believe in.</p>
+          <p className="kicker" style={{ maxWidth: 340 }}>Boring &amp; proven - and the occasional new tool we genuinely believe in.</p>
         </div>
         <div className="reveal">
           <TechPills keys={STACK} />

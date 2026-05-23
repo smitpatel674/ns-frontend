@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 
@@ -9,7 +9,7 @@ export function AboutSection() {
     "> we design for users who think less",
     "> we code for products that scale hard",
     "> small team. zero fluff. all output.",
-    "$ —nextron solution",
+    "$ -nextron solution",
   ];
 
   const [displayedLines, setDisplayedLines] = useState<string[]>(terminalLines.map(() => ""));
@@ -52,10 +52,10 @@ export function AboutSection() {
       <div className="wrap">
         <div className="about-grid">
           <div className="about-copy reveal">
-            <span className="label">/ 02 — ABOUT COMPANY</span>
+            <span className="label">/ 02 - ABOUT COMPANY</span>
             <h2>Empowering startups &amp; enterprises to build <em>scalable</em> digital products.</h2>
             <p>Nextron Solution is a young studio with veteran instincts. We pair <strong>senior engineering</strong> with <strong>editorial design</strong> to build websites, products and growth systems that punch far above their weight.</p>
-            <p>Founded in 2025 in Kadi, Gujarat, we serve founders and teams across India and globally — from local family businesses to venture-backed startups. We&apos;re small on purpose: every project gets principal-level attention.</p>
+            <p>Founded in 2025 in Kadi, Gujarat, we serve founders and teams across India and globally - from local family businesses to venture-backed startups. We&apos;re small on purpose: every project gets principal-level attention.</p>
             <div className="about-stats">
               <div className="about-stat">
                 <span className="v"><span className="count" data-target="50">0</span><span className="plus">+</span></span>

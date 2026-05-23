@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 const SERVICES = [
   { num: "01", title: "Web Development", desc: "Modern responsive websites and web apps built with cutting-edge frameworks for optimal performance." },
@@ -24,7 +24,7 @@ export function ServicesSection() {
       <div className="wrap">
         <div className="section-head-row reveal x-in">
           <div>
-            <span className="label">/ 03 — OUR SERVICES</span>
+            <span className="label">/ 03 - OUR SERVICES</span>
             <h2 className="section-title">What we do,<br /><em>end to end.</em></h2>
           </div>
           <div className="right-meta">09 Total<br />Capabilities</div>

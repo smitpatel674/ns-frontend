@@ -3,7 +3,7 @@ export function AvailabilityBanner() {
     <div className="availability reveal">
       <div className="avail-pill">
         <span className="live-dot" />
-        AVAILABLE FOR NEW PROJECTS — Q3 2026
+        AVAILABLE FOR NEW PROJECTS - Q3 2026
       </div>
     </div>
   );

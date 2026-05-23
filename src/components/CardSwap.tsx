@@ -150,7 +150,7 @@ export default function CardSwap({
           opacity = 0;
           transition = "none";
         } else {
-          // Normal stack slot — settles with smooth ease-out
+          // Normal stack slot - settles with smooth ease-out
           tx = pos.x;
           ty = pos.y;
           tz = pos.z;

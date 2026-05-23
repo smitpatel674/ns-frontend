@@ -7,17 +7,14 @@ const LOGO_ROW = [
   { name: "N.B.FABTECH", src: "/images/nbfabtech.png" },
 ];
 
-const ROW2 = [
-  "Aspen Retail Co.", "Krona Health", "Habit School", "Foundry 9",
-  "Tula Logistics", "Marigold Capital", "Sequence Labs", "Open Atlas",
-];
+const MARQUEE_LOGOS = Array.from({ length: 8 }, () => LOGO_ROW).flat();
 
 export function ClientMarquee() {
   return (
     <section className="client-marquee" id="clients">
       <div className="cm-label">/ CLIENTS &amp; PARTNERS</div>
       <div className="cm-row a">
-        {[...LOGO_ROW, ...LOGO_ROW].map((client, i) => (
+        {MARQUEE_LOGOS.map((client, i) => (
           <span className="client-badge logo-badge" key={i}>
             <Image
               src={client.src}
@@ -27,11 +24,6 @@ export function ClientMarquee() {
               priority={false}
             />
           </span>
-        ))}
-      </div>
-      <div className="cm-row b">
-        {[...ROW2, ...ROW2].map((c, i) => (
-          <span className="client-badge" key={i}>{c}</span>
         ))}
       </div>
     </section>

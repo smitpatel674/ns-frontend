@@ -20,11 +20,11 @@ export function ContactSection() {
       <div className="wrap">
         <div className="section-head-row reveal x-in">
           <div>
-            <span className="label">/ 11 — GET IN TOUCH</span>
+            <span className="label">/ 11 - GET IN TOUCH</span>
             <h2 className="section-title">Start a <em>conversation.</em></h2>
           </div>
           <p className="kicker" style={{ maxWidth: "340px" }}>
-            Tell us about your project — we respond within 24 hours.
+            Tell us about your project - we respond within 24 hours.
           </p>
         </div>
         <div className="contact-grid">
@@ -61,7 +61,7 @@ export function ContactSection() {
               </div>
               <div className="ci-text">
                 <span className="l">Studio</span>
-                <span className="v">Kadi, Gujarat — India</span>
+                <span className="v">Kadi, Gujarat - India</span>
               </div>
             </div>
             <div className="ci-row">
@@ -73,7 +73,7 @@ export function ContactSection() {
               </div>
               <div className="ci-text">
                 <span className="l">Hours</span>
-                <span className="v">Mon — Sat · 10 – 7 IST</span>
+                <span className="v">Mon - Sat · 10 - 7 IST</span>
               </div>
             </div>
             <div className="socials" aria-label="Social links">
@@ -143,8 +143,8 @@ export function ContactSection() {
               <label htmlFor="cf-budget">Project Budget</label>
               <select id="cf-budget" data-cursor="">
                 <option>&lt; ₹1 Lakh</option>
-                <option>₹1 – 3 Lakh</option>
-                <option>₹3 – 10 Lakh</option>
+                <option>₹1 - 3 Lakh</option>
+                <option>₹3 - 10 Lakh</option>
                 <option>₹10 Lakh +</option>
               </select>
             </div>

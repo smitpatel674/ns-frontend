@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { TechPills } from "./TechStackSection";
 
 export function SpotlightSection() {
@@ -9,7 +9,7 @@ export function SpotlightSection() {
           <span className="label">/ FEATURED CASE STUDY</span>
           <h2>Pokar Greens.<br /><em>Fresh, daily.</em></h2>
           <p className="sp-problem">
-            &ldquo;We needed a storefront that respected the produce — calm, modern, and fast enough for chefs ordering at 6am.&rdquo;
+            &ldquo;We needed a storefront that respected the produce - calm, modern, and fast enough for chefs ordering at 6am.&rdquo;
           </p>
           <div className="sp-results">
             <div className="sp-result"><span className="v">+182%</span><span className="l">Online orders YoY</span></div>

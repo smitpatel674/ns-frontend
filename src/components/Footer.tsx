@@ -16,7 +16,7 @@ export function Footer() {
                 className="footer-logo"
               />
             </Link>
-            <p className="b-tag">Next Digital Success — Building The Future Together.</p>
+            <p className="b-tag">Next Digital Success - Building The Future Together.</p>
             <div className="f-socials">
               <a
                 href="https://www.linkedin.com/company/nextronsolution/"
@@ -66,7 +66,7 @@ export function Footer() {
             <ul>
               <li><a href="mailto:nextronsolution@gmail.com" data-cursor="">nextronsolution@gmail.com</a></li>
               <li><a href="tel:+919586141881" data-cursor="">+91 9586 141 881</a></li>
-              <li><a href="#contact" data-cursor="">Kadi, Gujarat — IN</a></li>
+              <li><a href="#contact" data-cursor="">Kadi, Gujarat - IN</a></li>
             </ul>
           </div>
 

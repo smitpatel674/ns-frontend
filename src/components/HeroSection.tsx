@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import CardSwap, { Card } from "./CardSwap";
@@ -99,7 +99,7 @@ export function HeroSection() {
 
       <div className="hero-top">
         <div className="hero-eyebrow" id="heroEyebrow">
-          <span className="tri">&#9658;</span> NEXT DIGITAL SUCCESS &mdash; EST. 2025
+          <span className="tri">&#9658;</span> NEXT DIGITAL SUCCESS - EST. 2025
         </div>
       </div>
 
@@ -169,19 +169,7 @@ export function HeroSection() {
             <div className="fcard-spark s1" />
             <div className="fcard-spark s2" />
             <div className="fcard-spark s3" />
-              {/* Center Frosted Badge */}
-              <div 
-                className="absolute w-24 h-24 rounded-full backdrop-blur-md bg-white/10 flex items-center justify-center border border-black/10 shadow-[0_0_40px_rgba(0,0,0,0.05)] transition-transform duration-300 ease-out"
-                style={{
-                  transform: `translate(${mousePos.x * -40}px, ${mousePos.y * -40}px) scale(1.1)`,
-                }}
-              >
-                 <div className="flex flex-col items-center">
-                    <span className="font-mono text-[10px] tracking-widest opacity-40">EST.</span>
-                    <span className="font-medium tracking-widest opacity-80">2025</span>
-                 </div>
-              </div>
-              
+
               {/* Floating Nodes */}
               <div className="absolute top-12 left-1/2 w-2 h-2 bg-black rounded-full blur-[1px] animate-pulse" />
               <div className="absolute bottom-24 right-20 w-1.5 h-1.5 bg-black rounded-full blur-[1px] animate-pulse delay-75" />
@@ -189,12 +177,10 @@ export function HeroSection() {
             </div>
           </div>
         </div>
-      </div>
-
       <div className="hero-bottom">
         <p className="hero-sub reveal" id="heroSub">
           From <strong>high-performance web applications</strong> to data-driven
-          marketing — Nextron Solution <strong>engineers growth</strong> for
+          marketing - Nextron Solution <strong>engineers growth</strong> for
           startups and enterprises across Gujarat and beyond.
         </p>
         <div className="hero-ctas reveal delay-1" id="heroCtas">
@@ -224,10 +210,6 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="scroll-hint" aria-hidden="true">
-        SCROLL
-        <span className="ln" />
-      </div>
     </section>
   );
 }

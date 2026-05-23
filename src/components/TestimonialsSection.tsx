@@ -25,7 +25,7 @@ export function TestimonialsSection() {
       <div className="wrap">
         <div className="section-head-row reveal x-in">
           <div>
-            <span className="label">/ 10 — TRUSTED BY</span>
+            <span className="label">/ 10 - TRUSTED BY</span>
             <h2 className="section-title">
               From the people<br />who <em>pay our invoices.</em>
             </h2>

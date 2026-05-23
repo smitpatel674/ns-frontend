@@ -9,7 +9,7 @@ export function IndustriesSection() {
       <div className="wrap">
         <div className="section-head-row reveal x-in">
           <div>
-            <span className="label">/ 08 — INDUSTRIES WE SERVE</span>
+            <span className="label">/ 08 - INDUSTRIES WE SERVE</span>
             <h2 className="section-title">
               Worked across<br /><em>most of them.</em>
             </h2>

@@ -2,10 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Nextron Solution — Next Digital Success",
-  description: "Nextron Solution offers expert web development, digital marketing, SEO, UI/UX design, and AI/ML development services in Gujarat, India.",
-  icons: { icon: "/icon.png" },
-  title: "Nextron Solution — Web Development & Digital Marketing",
+  title: "Nextron Solution - Web Development & Digital Marketing",
   description: "Nextron Solution offers expert web development, digital marketing, SEO, UI/UX design, and AI/ML development services in Gujarat, India. Next Digital Success.",
   icons: {
     icon: [
